@@ -68,164 +68,228 @@ export default function Hero() {
     /* ------- Content Wrapper ------- */
     React.createElement(
       "div",
-      { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" },
+      { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
       React.createElement(
-        motion.div,
-        { variants: containerVariants, initial: "hidden", animate: "visible", className: "space-y-8" },
-
-        /* Heading */
+        "div",
+        { className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-16" },
+        
+        /* Left Side - Text Content */
         React.createElement(
           motion.div,
-          { variants: itemVariants, className: "space-y-4" },
+          { variants: containerVariants, initial: "hidden", animate: "visible", className: "space-y-8 text-left" },
+          
+          /* Heading */
           React.createElement(
-            motion.h1,
-            { className: "text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight" },
+            motion.div,
+            { variants: itemVariants, className: "space-y-4" },
             React.createElement(
-              "span",
-              { className: "block mt-2" },
+              motion.h1,
+              { className: "text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" },
+              React.createElement(
+                "span",
+                { className: "block mt-2" },
+                React.createElement(
+                  motion.span,
+                  {
+                    initial: { opacity: 0, x: -50 },
+                    animate: { opacity: 1, x: 0 },
+                    transition: { delay: 0.8, duration: 0.8 },
+                    className: "bg-gradient-to-r from-purple-400 via-teal-400 to-purple-400 bg-clip-text text-transparent"
+                  },
+                  "Empowering Digital"
+                )
+              ),
+              React.createElement("span", { className: "block mt-2 text-white" }, "Growth Without"),
               React.createElement(
                 motion.span,
                 {
-                  initial: { opacity: 0, x: -50 },
-                  animate: { opacity: 1, x: 0 },
-                  transition: { delay: 0.8, duration: 0.8 },
-                  className: "bg-gradient-to-r from-purple-400 via-teal-400 to-purple-400 bg-clip-text text-transparent"
+                  initial: { opacity: 0, scale: 0.8 },
+                  animate: { opacity: 1, scale: 1 },
+                  transition: { delay: 1.2, duration: 0.8 },
+                  className: "block mt-2 bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent"
                 },
-                "Digital Marketing"
+                "Limits"
               )
-            ),
-            React.createElement("span", { className: "block mt-2 text-white" }, "That Delivers"),
-            React.createElement(
-              motion.span,
-              {
-                initial: { opacity: 0, scale: 0.8 },
-                animate: { opacity: 1, scale: 1 },
-                transition: { delay: 1.2, duration: 0.8 },
-                className: "block mt-2 bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent"
-              },
-              "Growth"
             )
-          )
-        ),
-
-        /* Subheading */
-        React.createElement(
-          motion.p,
-          { variants: itemVariants, className: "text-xl sm:text-2xl lg:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed" },
-          "We help brands grow with ",
-          React.createElement("span", { className: "text-purple-400 font-semibold" }, "SEO"),
-          ", ",
-          React.createElement("span", { className: "text-teal-400 font-semibold" }, "PPC"),
-          ", ",
-          React.createElement("span", { className: "text-purple-400 font-semibold" }, "social media"),
-          ", and ",
-          React.createElement("span", { className: "text-teal-400 font-semibold" }, "data-driven strategies"),
-          "."
-        ),
-
-        /* Buttons */
-        React.createElement(
-          motion.div,
-          { variants: itemVariants, className: "flex flex-col sm:flex-row items-center justify-center gap-4 pt-8" },
-          React.createElement(
-            Button,
-            {
-              className:
-                "group relative overflow-hidden bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-purple-500/25"
-            },
-            React.createElement(
-              motion.span,
-              {
-                className: "relative z-10 flex items-center",
-                whileHover: { x: 5 },
-                transition: { type: "spring", stiffness: 400, damping: 17 }
-              },
-              "Get Free Strategy Call",
-              React.createElement(ArrowRight, { className: "ml-2 w-5 h-5" })
-            ),
-            React.createElement(motion.div, {
-              className:
-                "absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-              initial: false
-            })
           ),
+
+          /* Subheading */
           React.createElement(
-            Button,
-            {
-              variant: "outline",
-              className:
-                "group flex items-center border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500/10 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-purple-400"
-            },
-            React.createElement(Play, { className: "mr-2 w-5 h-5" }),
-            "Watch Our Work"
+            motion.p,
+            { variants: itemVariants, className: "text-xl sm:text-1xl lg:text-2xl text-gray-300 leading-relaxed" },
+            "We craft digital experiences that drive real impact and limitless growth.",
+            React.createElement("span", { className: "text-purple-400 font-semibold" }, " Let's push boundaries and build what's next, together"),
+          ),
+
+          /* Buttons */
+          React.createElement(
+            motion.div,
+            { variants: itemVariants, className: "flex flex-col sm:flex-row items-start gap-4 pt-8" },
+            React.createElement(
+              Button,
+              {
+                className:
+                  "group relative overflow-hidden bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-purple-500/25"
+              },
+              React.createElement(
+                motion.span,
+                {
+                  className: "relative z-10 flex items-center",
+                  whileHover: { x: 5 },
+                  transition: { type: "spring", stiffness: 400, damping: 17 }
+                },
+                "Get Free Strategy Call",
+                React.createElement(ArrowRight, { className: "ml-2 w-5 h-5" })
+              ),
+              React.createElement(motion.div, {
+                className:
+                  "absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                initial: false
+              })
+            ),
+            React.createElement(
+              Button,
+              {
+                variant: "outline",
+                className:
+                  "group flex items-center border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500/10 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-purple-400"
+              },
+              React.createElement(Play, { className: "mr-2 w-5 h-5" }),
+              "Watch Our Work"
+            )
+          ),
+
+          /* Stats */
+          React.createElement(
+            motion.div,
+            { variants: itemVariants, className: "pt-8 grid grid-cols-2 lg:grid-cols-4 gap-6" },
+            stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return React.createElement(
+                motion.div,
+                {
+                  key: index,
+                  initial: { opacity: 0.5, scale: 0.8 },
+                  animate: {
+                    opacity: currentStatIndex === index ? 1 : 0.7,
+                    scale: currentStatIndex === index ? 1.1 : 1
+                  },
+                  transition: { duration: 0.5 },
+                  className:
+                    "text-center p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 " +
+                    (currentStatIndex === index
+                      ? "bg-gradient-to-br from-purple-500/20 to-teal-500/20 border border-purple-500/30"
+                      : "bg-slate-800/30 border border-slate-700/50")
+                },
+                React.createElement(Icon, {
+                  className:
+                    "w-8 h-8 mx-auto mb-3 " +
+                    (currentStatIndex === index ? "text-purple-400" : "text-gray-400")
+                }),
+                React.createElement(
+                  "div",
+                  {
+                    className:
+                      "text-2xl lg:text-3xl font-bold mb-1 " +
+                      (currentStatIndex === index
+                        ? "bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent"
+                        : "text-white")
+                  },
+                  stat.number
+                ),
+                React.createElement("div", { className: "text-sm text-gray-400" }, stat.label)
+              );
+            })
           )
         ),
 
-        /* Stats */
-        React.createElement(
-          motion.div,
-          { variants: itemVariants, className: "pt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto" },
-          stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return React.createElement(
-              motion.div,
-              {
-                key: index,
-                initial: { opacity: 0.5, scale: 0.8 },
-                animate: {
-                  opacity: currentStatIndex === index ? 1 : 0.7,
-                  scale: currentStatIndex === index ? 1.1 : 1
-                },
-                transition: { duration: 0.5 },
-                className:
-                  "text-center p-6 rounded-2xl backdrop-blur-sm transition-all duration-500 " +
-                  (currentStatIndex === index
-                    ? "bg-gradient-to-br from-purple-500/20 to-teal-500/20 border border-purple-500/30"
-                    : "bg-slate-800/30 border border-slate-700/50")
-              },
-              React.createElement(Icon, {
-                className:
-                  "w-8 h-8 mx-auto mb-3 " +
-                  (currentStatIndex === index ? "text-purple-400" : "text-gray-400")
-              }),
-              React.createElement(
-                "div",
-                {
-                  className:
-                    "text-2xl lg:text-3xl font-bold mb-1 " +
-                    (currentStatIndex === index
-                      ? "bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent"
-                      : "text-white")
-                },
-                stat.number
-              ),
-              React.createElement("div", { className: "text-sm text-gray-400" }, stat.label)
-            );
-          })
-        ),
-
-   
+        /* Right Side - Image */
         React.createElement(
           motion.div,
           {
-            initial: { opacity: 0, y: 20 },
-            animate: { opacity: 1, y: 0 },
-            transition: { delay: 2, duration: 1 },
-            className: "absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            initial: { opacity: 0, x: 50 },
+            animate: { opacity: 1, x: 0 },
+            transition: { delay: 0.5, duration: 1 },
+            className: "relative -mt-8"
           },
           React.createElement(
-            motion.div,
-            {
-              animate: { y: [0, 10, 0] },
-              transition: { duration: 2, repeat: Infinity },
-              className: "w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center"
-            },
-            React.createElement(motion.div, {
-              animate: { y: [0, 16, 0] },
-              transition: { duration: 2, repeat: Infinity },
-              className: "w-1 h-3 bg-gradient-to-b from-purple-400 to-teal-400 rounded-full mt-2"
-            })
+            "div",
+            { className: "relative" },
+            /* Main Image Container */
+            React.createElement(
+              motion.div,
+              {
+                animate: { y: [0, -10, 0] },
+                transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                className: "relative z-10"
+              },
+              React.createElement("img", {
+                src: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3000&q=80",
+                alt: "Digital Growth",
+                className: "w-full h-[600px] object-cover rounded-2xl shadow-2xl"
+              })
+            ),
+            
+            /* Floating Elements */
+            React.createElement(
+              motion.div,
+              {
+                animate: { rotate: [0, 360], scale: [1, 1.1, 1] },
+                transition: { duration: 8, repeat: Infinity, ease: "linear" },
+                className: "absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-500/30 to-teal-500/30 rounded-full blur-sm"
+              }
+            ),
+            React.createElement(
+              motion.div,
+              {
+                animate: { rotate: [360, 0], y: [0, -20, 0] },
+                transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                className: "absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-teal-500/30 to-purple-500/30 rounded-full blur-sm"
+              }
+            ),
+            
+            /* Decorative Elements */
+            React.createElement(
+              motion.div,
+              {
+                animate: { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] },
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                className: "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-purple-400/20 rounded-full"
+              }
+            ),
+            React.createElement(
+              motion.div,
+              {
+                animate: { scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] },
+                transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                className: "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-teal-400/20 rounded-full"
+              }
+            )
           )
+        )
+      ),
+      
+      /* Scroll Indicator */
+      React.createElement(
+        motion.div,
+        {
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0 },
+          transition: { delay: 2, duration: 1 },
+          className: "absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        },
+        React.createElement(
+          motion.div,
+          {
+            animate: { y: [0, 10, 0] },
+            transition: { duration: 2, repeat: Infinity },
+            className: "w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center"
+          },
+          React.createElement(motion.div, {
+            animate: { y: [0, 16, 0] },
+            transition: { duration: 2, repeat: Infinity },
+            className: "w-1 h-3 bg-gradient-to-b from-purple-400 to-teal-400 rounded-full mt-2"
+          })
         )
       )
     )
