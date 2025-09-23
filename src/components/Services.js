@@ -81,24 +81,24 @@ export default function Services({ detailed = false }) {
       gradient: "from-teal-500 to-cyan-500",
       bgGradient: "from-teal-500/20 to-cyan-500/20",
     },
-    // {
-    //   icon: Mail,
-    //   title: "Email Marketing",
-    //   shortDesc: "Nurture leads and drive sales with targeted email campaigns",
-    //   longDesc:
-    //     "Build relationships and drive conversions with personalized email marketing campaigns, automated workflows, and targeted messaging that resonates with your audience.",
-    //   features: [
-    //     "Email Campaign Design",
-    //     "Marketing Automation",
-    //     "List Segmentation",
-    //     "A/B Testing",
-    //     "Performance Analytics",
-    //     "CRM Integration",
-    //   ],
-    //   color: "purple",
-    //   gradient: "from-purple-500 to-violet-500",
-    //   bgGradient: "from-purple-500/20 to-violet-500/20",
-    // },
+    {
+      icon: Mail,
+      title: "Vedio Editing",
+      shortDesc: "Nurture leads and drive sales with targeted email campaigns",
+      longDesc:
+        "Video editing is the process of arranging and modifying video clips to create a polished final product. It involves cutting, adding effects, transitions, sound, and color correction to tell a story or deliver a message effectively. Good editing enhances the visual appeal and keeps viewers engaged.",
+      features: [
+        "Cutting & Trimming",
+        "Transitions & Effects",
+        "Color Correction",
+        "Audio Editing",
+        "Motion Graphics",
+        "Exporting Formats",
+      ],
+      color: "purple",
+      gradient: "from-purple-500 to-violet-500",
+      bgGradient: "from-purple-500/20 to-violet-500/20",
+    },
     {
       icon: Code,
       title: "Web Development",
@@ -135,24 +135,24 @@ export default function Services({ detailed = false }) {
       gradient: "from-purple-500 to-indigo-500",
       bgGradient: "from-purple-500/20 to-indigo-500/20",
     },
-    // {
-    //   icon: TrendingUp,
-    //   title: "Conversion Rate Optimization (CRO)",
-    //   shortDesc: "Optimize your website to convert more visitors into customers",
-    //   longDesc:
-    //     "Increase your website's conversion rates through data-driven testing, user behavior analysis, and strategic optimizations that turn more visitors into paying customers.",
-    //   features: [
-    //     "Conversion Audits",
-    //     "A/B Testing",
-    //     "User Behavior Analysis",
-    //     "Landing Page Optimization",
-    //     "Funnel Optimization",
-    //     "ROI Tracking",
-    //   ],
-    //   color: "teal",
-    //   gradient: "from-teal-500 to-green-500",
-    //   bgGradient: "from-teal-500/20 to-green-500/20",
-    // },
+    {
+      icon: TrendingUp,
+      title: "Social Media Marketing",
+      shortDesc: "Optimize your website to convert more visitors into customers",
+      longDesc:
+        "Social media marketing promotes products or services through platforms like Facebook, Instagram, and LinkedIn. It helps businesses increase brand awareness, engage with audiences, and drive traffic through creative content and targeted ads.",
+      features: [
+        "Platform Targeting",
+        "Content Creation",
+        "Paid Advertising",
+        "Audience Engagement",
+        "Analytics & Insights",
+        "Brand Awareness",
+      ],
+      color: "teal",
+      gradient: "from-teal-500 to-green-500",
+      bgGradient: "from-teal-500/20 to-green-500/20",
+    },
   ];
 
   const containerVariants = {
