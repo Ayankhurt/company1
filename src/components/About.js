@@ -61,7 +61,7 @@ export default function About({ detailed = false }) {
           )
         ),
 
-        // Story Section
+        // Updated Story Section
         React.createElement(motion.div, {
           initial: { opacity: 0, y: 30 },
           animate: { opacity: 1, y: 0 },
@@ -72,7 +72,16 @@ export default function About({ detailed = false }) {
             React.createElement("div", null,
               React.createElement("h2", { className: "text-3xl font-bold text-white mb-6" }, "Our Story"),
               React.createElement("p", { className: "text-gray-300 mb-6 leading-relaxed" },
-                "Founded in 2018, Codezyra began with a simple mission: to democratize digital marketing success for businesses of all sizes."
+                "At Codezyra, we believe that every business has a unique story to tell, and we’re here to make sure that story reaches the right people. We’re not just a digital marketing company; we are storytellers, innovators, and strategists who focus on creating digital experiences that help businesses grow, thrive, and succeed."
+              ),
+              React.createElement("p", { className: "text-gray-300 mb-6 leading-relaxed" },
+                "Founded in 2018, Codezyra began with a simple mission: to offer cutting-edge digital marketing solutions that truly work. Over time, our passion for creativity, data-driven strategies, and client satisfaction turned that mission into a successful business. Today, we’ve helped countless brands reach new heights, but we’re still driven by the same passion that started it all."
+              ),
+              React.createElement("p", { className: "text-gray-300 mb-6 leading-relaxed" },
+                "At Codezyra, we specialize in custom-tailored solutions like SEO, PPC, social media marketing, and branding. We collaborate closely with clients to understand their vision, goals, and unique needs, then design strategies that drive measurable results and long-term growth."
+              ),
+              React.createElement("p", { className: "text-gray-300 mb-6 leading-relaxed" },
+                "What sets us apart is our commitment to transparency, constant innovation, and building strong, long-lasting relationships with our clients. We don’t just aim for great results; we aim for extraordinary growth and long-term success."
               )
             )
           )

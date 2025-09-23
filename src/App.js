@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import CaseStudies from './components/CaseStudies';
 import About from './components/About';
 import Pricing from './components/Pricing';
 import Blog from './components/Blog';
@@ -62,13 +61,9 @@ export default function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Hero, null), /*#__PURE__*/React.createElement(Services, null), /*#__PURE__*/React.createElement(CaseStudies, null), /*#__PURE__*/React.createElement(About, null));
+        return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Hero, null), /*#__PURE__*/React.createElement(Services, null), /*#__PURE__*/React.createElement(About, null));
       case 'services':
         return /*#__PURE__*/React.createElement(Services, {
-          detailed: true
-        });
-      case 'case-studies':
-        return /*#__PURE__*/React.createElement(CaseStudies, {
           detailed: true
         });
       case 'about':
