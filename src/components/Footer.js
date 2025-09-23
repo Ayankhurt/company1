@@ -9,13 +9,11 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowRight,
   Heart,
   Zap
 } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
+import MapComponent from "./ui/MapComponent.js";
 
 export default function Footer({ currentPage, onNavigate }) {
   const currentYear = new Date().getFullYear();
@@ -58,9 +56,8 @@ export default function Footer({ currentPage, onNavigate }) {
   ];
 
   const contactInfo = [
-    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: Mail, text: "hello@codezyra.com", href: "mailto:hello@codezyra.com" },
-    { icon: MapPin, text: "123 Business Ave, New York, NY 10001", href: "https://maps.google.com" }
+    { icon: Phone, text: "+92 311 2070329", href: "tel:+923112070329" },
+    { icon: Mail, text: "codezyra9@gmail.com", href: "mailto:codezyra9@gmail.com" }
   ];
 
   return React.createElement(
@@ -87,57 +84,19 @@ export default function Footer({ currentPage, onNavigate }) {
       "div",
       { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
 
-      /* NEWSLETTER SECTION */
-      React.createElement(
-        motion.div,
-        {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8 },
-          viewport: { once: true },
-          className: "py-16 border-b border-slate-800"
-        },
-        React.createElement(
-          "div",
-          { className: "text-center mb-8" },
-          React.createElement("h3", { className: "text-3xl font-bold text-white mb-4" }, "Stay Ahead of the Digital Curve"),
-          React.createElement("p", { className: "text-xl text-gray-300 max-w-2xl mx-auto" },
-            "Get exclusive digital marketing insights, industry trends, and growth strategies delivered to your inbox."
-          )
-        ),
-        React.createElement(
-          "div",
-          { className: "flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto" },
-          React.createElement(Input, {
-            type: "email",
-            placeholder: "Enter your email address",
-            className: "bg-slate-800/50 border-slate-700 focus:border-purple-500 text-white"
-          }),
-          React.createElement(
-            Button,
-            { className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-2 font-semibold whitespace-nowrap" },
-            "Subscribe",
-            React.createElement(ArrowRight, { className: "ml-2 w-4 h-4" })
-          )
-        ),
-        React.createElement("p", { className: "text-sm text-gray-400 text-center mt-4" },
-          "Join 10,000+ marketers. No spam, unsubscribe anytime."
-        )
-      ),
-
       /* ---------------- MAIN FOOTER CONTENT ---------------- */
       React.createElement(
         "div",
-        { className: "py-16" },
+        { className: "pt-4 pb-8" },
         React.createElement(
           "div",
-          { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" },
+          { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center lg:justify-items-start" },
           
           /* QUICK LINKS */
           React.createElement(
             "div",
-            { className: "lg:col-span-1" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Quick Links"),
+            { className: "lg:col-span-1 text-center lg:text-left" },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-4" }, "Quick Links"),
             React.createElement(
               "ul",
               { className: "space-y-3" },
@@ -161,10 +120,10 @@ export default function Footer({ currentPage, onNavigate }) {
           ),
 
           /* SERVICES */
-          React.createElement(
-            "div",
-            { className: "lg:col-span-1" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Services"),
+        React.createElement(
+          "div",
+            { className: "lg:col-span-1 text-center lg:text-left" },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-4" }, "Services"),
             React.createElement(
               "ul",
               { className: "space-y-3" },
@@ -189,15 +148,15 @@ export default function Footer({ currentPage, onNavigate }) {
           /* CONTACT INFO */
           React.createElement(
             "div",
-            { className: "lg:col-span-2" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Get In Touch"),
+            { className: "lg:col-span-2 text-center lg:text-left" },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-4" }, "Get In Touch"),
             React.createElement(
               "div",
               { className: "space-y-4" },
               contactInfo.map((contact, index) =>
                 React.createElement(
                   "div",
-                  { key: index, className: "flex items-center space-x-3" },
+                  { key: index, className: "flex items-center space-x-3 justify-center lg:justify-start" },
                   React.createElement(contact.icon, { className: "w-5 h-5 text-purple-400 flex-shrink-0" }),
                   React.createElement(
                     "a",
@@ -210,13 +169,26 @@ export default function Footer({ currentPage, onNavigate }) {
                 )
               )
             ),
+            
+            /* MAP COMPONENT */
+            React.createElement(
+              "div",
+              { className: "mt-6" },
+              React.createElement("h5", { className: "text-white font-semibold mb-3" }, "Our Location"),
+              React.createElement(
+                "div",
+                { className: "w-full h-48 rounded-lg overflow-hidden flex justify-center" },
+                React.createElement(MapComponent)
+              )
+            ),
+            
             React.createElement(
               "div",
               { className: "mt-8" },
               React.createElement("h5", { className: "text-white font-semibold mb-4" }, "Follow Us"),
               React.createElement(
                 "div",
-                { className: "flex space-x-4" },
+                { className: "flex space-x-4 justify-center lg:justify-start" },
                 socialLinks.map((social, index) =>
                   React.createElement(
                     "a",
@@ -245,7 +217,7 @@ export default function Footer({ currentPage, onNavigate }) {
         { className: "py-8" },
         React.createElement(
           "div",
-          { className: "flex flex-col md:flex-row items-center justify-between gap-4" },
+          { className: "flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 text-center md:text-left" },
           
           /* COPYRIGHT */
           React.createElement(
@@ -255,22 +227,7 @@ export default function Footer({ currentPage, onNavigate }) {
             React.createElement(Heart, { className: "w-4 h-4 text-red-400" })
           ),
 
-          /* LEGAL LINKS */
-          React.createElement(
-            "div",
-            { className: "flex flex-wrap items-center gap-6" },
-            legalLinks.map((legal, index) =>
-              React.createElement(
-                "a",
-                {
-                  key: index,
-                  href: "#",
-                  className: "text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                },
-                legal
-              )
-            )
-          ),
+
 
           /* BRANDING */
           React.createElement(
