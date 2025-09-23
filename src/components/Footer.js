@@ -8,7 +8,6 @@ import {
   Youtube,
   Mail,
   Phone,
-  MapPin,
   Heart,
   Zap
 } from "lucide-react";
@@ -34,17 +33,7 @@ export default function Footer({ currentPage, onNavigate }) {
     "Social Media Marketing",
     "Email Marketing",
     "Web Development",
-    "UI/UX Design",
-  ];
-
-
-  const legalLinks = [
-    "Privacy Policy",
-    "Terms of Service",
-    "Cookie Policy",
-    "Data Protection",
-    "Refund Policy",
-    "Disclaimer"
+    "UI/UX Design"
   ];
 
   const socialLinks = [
@@ -63,6 +52,7 @@ export default function Footer({ currentPage, onNavigate }) {
   return React.createElement(
     "footer",
     { className: "relative bg-slate-900 border-t border-slate-800 overflow-hidden" },
+
     /* ---------------- BACKGROUND ANIMATED DIVS ---------------- */
     React.createElement(
       "div",
@@ -87,28 +77,27 @@ export default function Footer({ currentPage, onNavigate }) {
       /* ---------------- MAIN FOOTER CONTENT ---------------- */
       React.createElement(
         "div",
-        { className: "pt-4 pb-8" },
+        { className: "pt-8 pb-12" },
         React.createElement(
           "div",
-          { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center lg:justify-items-start" },
+          { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center lg:justify-items-start" },
           
-          /* QUICK LINKS */
           React.createElement(
             "div",
             { className: "lg:col-span-1 text-center lg:text-left" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-4" }, "Quick Links"),
+            React.createElement("h4", { className: "text-xl font-bold text-white mb-6" }, "Quick Links"),
             React.createElement(
               "ul",
-              { className: "space-y-3" },
+              { className: "space-y-4" }, // yaha se gap control hoga
               quickLinks.map((link, index) =>
                 React.createElement(
                   "li",
-                  { key: index },
+                  { key: index, className: "py-[8px]" }, // yaha se "space-y-1" hata diya
                   React.createElement(
                     "button",
                     {
                       onClick: () => onNavigate(link.page),
-                      className: `text-gray-300 hover:text-white transition-colors duration-200 text-left ${
+                      className: `text-base text-gray-300 hover:text-white transition-colors duration-200 text-left ${
                         currentPage === link.page ? "text-purple-400" : ""
                       }`
                     },
@@ -118,24 +107,24 @@ export default function Footer({ currentPage, onNavigate }) {
               )
             )
           ),
-
+          
           /* SERVICES */
-        React.createElement(
-          "div",
+          React.createElement(
+            "div",
             { className: "lg:col-span-1 text-center lg:text-left" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-4" }, "Services"),
+            React.createElement("h4", { className: "text-xl font-bold text-white mb-6" }, "Services"),
             React.createElement(
               "ul",
-              { className: "space-y-3" },
+              { className: "space-y-4" }, // sirf yahi spacing control karega
               services.map((service, index) =>
                 React.createElement(
                   "li",
-                  { key: index },
+                  { key: index, className: "py-[8px]" }, // "space-y-1" hata diya
                   React.createElement(
                     "a",
                     {
                       href: "#",
-                      className: "text-gray-300 hover:text-white transition-colors duration-200"
+                      className: "text-base text-gray-300 hover:text-white transition-colors duration-200"
                     },
                     service
                   )
@@ -144,15 +133,14 @@ export default function Footer({ currentPage, onNavigate }) {
             )
           ),
 
-
           /* CONTACT INFO */
           React.createElement(
             "div",
             { className: "lg:col-span-2 text-center lg:text-left" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-4" }, "Get In Touch"),
+            React.createElement("h4", { className: "text-xl font-bold text-white mb-6" }, "Get In Touch"),
             React.createElement(
               "div",
-              { className: "space-y-4" },
+              { className: "space-y-5" },
               contactInfo.map((contact, index) =>
                 React.createElement(
                   "div",
@@ -162,7 +150,7 @@ export default function Footer({ currentPage, onNavigate }) {
                     "a",
                     {
                       href: contact.href,
-                      className: "text-gray-300 hover:text-white transition-colors duration-200"
+                      className: "text-base text-gray-300 hover:text-white transition-colors duration-200"
                     },
                     contact.text
                   )
@@ -173,8 +161,8 @@ export default function Footer({ currentPage, onNavigate }) {
             /* MAP COMPONENT */
             React.createElement(
               "div",
-              { className: "mt-6" },
-              React.createElement("h5", { className: "text-white font-semibold mb-3" }, "Our Location"),
+              { className: "mt-8" },
+              React.createElement("h5", { className: "text-white font-semibold mb-4" }, "Our Location"),
               React.createElement(
                 "div",
                 { className: "w-full h-48 rounded-lg overflow-hidden flex justify-center" },
@@ -184,7 +172,7 @@ export default function Footer({ currentPage, onNavigate }) {
             
             React.createElement(
               "div",
-              { className: "mt-8" },
+              { className: "mt-10" },
               React.createElement("h5", { className: "text-white font-semibold mb-4" }, "Follow Us"),
               React.createElement(
                 "div",
@@ -214,10 +202,10 @@ export default function Footer({ currentPage, onNavigate }) {
       /* ---------------- FOOTER BOTTOM ---------------- */
       React.createElement(
         "div",
-        { className: "py-8" },
+        { className: "py-10" },
         React.createElement(
           "div",
-          { className: "flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 text-center md:text-left" },
+          { className: "flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 text-center md:text-left" },
           
           /* COPYRIGHT */
           React.createElement(
@@ -226,8 +214,6 @@ export default function Footer({ currentPage, onNavigate }) {
             React.createElement("span", null, "© " + currentYear + " Codezyra. All rights reserved."),
             React.createElement(Heart, { className: "w-4 h-4 text-red-400" })
           ),
-
-
 
           /* BRANDING */
           React.createElement(
