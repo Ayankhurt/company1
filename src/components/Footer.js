@@ -32,25 +32,13 @@ export default function Footer({ currentPage, onNavigate }) {
 
   const services = [
     "SEO Optimization",
-    "PPC Management",
+    "Graphic Designing",
     "Social Media Marketing",
-    "Content Marketing",
     "Email Marketing",
     "Web Development",
     "UI/UX Design",
-    "Conversion Optimization"
   ];
 
-  const resources = [
-    "Digital Marketing Guide",
-    "SEO Checklist",
-    "PPC Calculator",
-    "Social Media Templates",
-    "Content Calendar",
-    "Analytics Dashboard",
-    "ROI Calculator",
-    "Free Consultation"
-  ];
 
   const legalLinks = [
     "Privacy Policy",
@@ -137,9 +125,162 @@ export default function Footer({ currentPage, onNavigate }) {
         )
       ),
 
-      /* ---------------- OTHER SECTIONS (Quick Links, Services, Resources, Contact Info, Social Links, Footer Bottom, etc.) ---------------- */
-      // 👆 Yaha tak maine full structure bana diya hai
-      // 👇 Niche ke parts (Quick Links, Services, Resources, Contact, Social, Legal Links, CTA button) bhi isi tarah React.createElement me likhne hain
+      /* ---------------- MAIN FOOTER CONTENT ---------------- */
+      React.createElement(
+        "div",
+        { className: "py-16" },
+        React.createElement(
+          "div",
+          { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" },
+          
+          /* QUICK LINKS */
+          React.createElement(
+            "div",
+            { className: "lg:col-span-1" },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Quick Links"),
+            React.createElement(
+              "ul",
+              { className: "space-y-3" },
+              quickLinks.map((link, index) =>
+                React.createElement(
+                  "li",
+                  { key: index },
+                  React.createElement(
+                    "button",
+                    {
+                      onClick: () => onNavigate(link.page),
+                      className: `text-gray-300 hover:text-white transition-colors duration-200 text-left ${
+                        currentPage === link.page ? "text-purple-400" : ""
+                      }`
+                    },
+                    link.name
+                  )
+                )
+              )
+            )
+          ),
+
+          /* SERVICES */
+          React.createElement(
+            "div",
+            { className: "lg:col-span-1" },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Services"),
+            React.createElement(
+              "ul",
+              { className: "space-y-3" },
+              services.map((service, index) =>
+                React.createElement(
+                  "li",
+                  { key: index },
+                  React.createElement(
+                    "a",
+                    {
+                      href: "#",
+                      className: "text-gray-300 hover:text-white transition-colors duration-200"
+                    },
+                    service
+                  )
+                )
+              )
+            )
+          ),
+
+
+          /* CONTACT INFO */
+          React.createElement(
+            "div",
+            { className: "lg:col-span-2" },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Get In Touch"),
+            React.createElement(
+              "div",
+              { className: "space-y-4" },
+              contactInfo.map((contact, index) =>
+                React.createElement(
+                  "div",
+                  { key: index, className: "flex items-center space-x-3" },
+                  React.createElement(contact.icon, { className: "w-5 h-5 text-purple-400 flex-shrink-0" }),
+                  React.createElement(
+                    "a",
+                    {
+                      href: contact.href,
+                      className: "text-gray-300 hover:text-white transition-colors duration-200"
+                    },
+                    contact.text
+                  )
+                )
+              )
+            ),
+            React.createElement(
+              "div",
+              { className: "mt-8" },
+              React.createElement("h5", { className: "text-white font-semibold mb-4" }, "Follow Us"),
+              React.createElement(
+                "div",
+                { className: "flex space-x-4" },
+                socialLinks.map((social, index) =>
+                  React.createElement(
+                    "a",
+                    {
+                      key: index,
+                      href: social.href,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      className: `w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-200 hover:scale-110`
+                    },
+                    React.createElement(social.icon, { className: "w-5 h-5" })
+                  )
+                )
+              )
+            )
+          )
+        )
+      ),
+
+      /* ---------------- SEPARATOR ---------------- */
+      React.createElement(Separator, { className: "bg-slate-800" }),
+
+      /* ---------------- FOOTER BOTTOM ---------------- */
+      React.createElement(
+        "div",
+        { className: "py-8" },
+        React.createElement(
+          "div",
+          { className: "flex flex-col md:flex-row items-center justify-between gap-4" },
+          
+          /* COPYRIGHT */
+          React.createElement(
+            "div",
+            { className: "flex items-center space-x-2 text-gray-400" },
+            React.createElement("span", null, "© " + currentYear + " Codezyra. All rights reserved."),
+            React.createElement(Heart, { className: "w-4 h-4 text-red-400" })
+          ),
+
+          /* LEGAL LINKS */
+          React.createElement(
+            "div",
+            { className: "flex flex-wrap items-center gap-6" },
+            legalLinks.map((legal, index) =>
+              React.createElement(
+                "a",
+                {
+                  key: index,
+                  href: "#",
+                  className: "text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                },
+                legal
+              )
+            )
+          ),
+
+          /* BRANDING */
+          React.createElement(
+            "div",
+            { className: "flex items-center space-x-2 text-gray-400" },
+            React.createElement(Zap, { className: "w-4 h-4 text-yellow-400" }),
+            React.createElement("span", { className: "text-sm" }, "Powered by Codezyra")
+          )
+        )
+      )
     )
   );
 }
