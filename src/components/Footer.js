@@ -8,14 +8,11 @@ import {
   Youtube,
   Mail,
   Phone,
-  MapPin,
-  ArrowRight,
   Heart,
   Zap
 } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
+import MapComponent from "./ui/MapComponent.js";
 
 export default function Footer({ currentPage, onNavigate }) {
   const currentYear = new Date().getFullYear();
@@ -32,33 +29,11 @@ export default function Footer({ currentPage, onNavigate }) {
 
   const services = [
     "SEO Optimization",
-    "PPC Management",
+    "Graphic Designing",
     "Social Media Marketing",
-    "Content Marketing",
     "Email Marketing",
     "Web Development",
-    "UI/UX Design",
-    "Conversion Optimization"
-  ];
-
-  const resources = [
-    "Digital Marketing Guide",
-    "SEO Checklist",
-    "PPC Calculator",
-    "Social Media Templates",
-    "Content Calendar",
-    "Analytics Dashboard",
-    "ROI Calculator",
-    "Free Consultation"
-  ];
-
-  const legalLinks = [
-    "Privacy Policy",
-    "Terms of Service",
-    "Cookie Policy",
-    "Data Protection",
-    "Refund Policy",
-    "Disclaimer"
+    "UI/UX Design"
   ];
 
   const socialLinks = [
@@ -70,14 +45,14 @@ export default function Footer({ currentPage, onNavigate }) {
   ];
 
   const contactInfo = [
-    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: Mail, text: "hello@codezyra.com", href: "mailto:hello@codezyra.com" },
-    { icon: MapPin, text: "123 Business Ave, New York, NY 10001", href: "https://maps.google.com" }
+    { icon: Phone, text: "+92 311 2070329", href: "tel:+923112070329" },
+    { icon: Mail, text: "codezyra9@gmail.com", href: "mailto:codezyra9@gmail.com" }
   ];
 
   return React.createElement(
     "footer",
     { className: "relative bg-slate-900 border-t border-slate-800 overflow-hidden" },
+
     /* ---------------- BACKGROUND ANIMATED DIVS ---------------- */
     React.createElement(
       "div",
@@ -99,47 +74,156 @@ export default function Footer({ currentPage, onNavigate }) {
       "div",
       { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
 
-      /* NEWSLETTER SECTION */
+      /* ---------------- MAIN FOOTER CONTENT ---------------- */
       React.createElement(
-        motion.div,
-        {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8 },
-          viewport: { once: true },
-          className: "py-16 border-b border-slate-800"
-        },
+        "div",
+        { className: "pt-8 pb-12" },
         React.createElement(
           "div",
-          { className: "text-center mb-8" },
-          React.createElement("h3", { className: "text-3xl font-bold text-white mb-4" }, "Stay Ahead of the Digital Curve"),
-          React.createElement("p", { className: "text-xl text-gray-300 max-w-2xl mx-auto" },
-            "Get exclusive digital marketing insights, industry trends, and growth strategies delivered to your inbox."
-          )
-        ),
-        React.createElement(
-          "div",
-          { className: "flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto" },
-          React.createElement(Input, {
-            type: "email",
-            placeholder: "Enter your email address",
-            className: "bg-slate-800/50 border-slate-700 focus:border-purple-500 text-white"
-          }),
+          { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 justify-items-center lg:justify-items-start" },
+          
           React.createElement(
-            Button,
-            { className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-2 font-semibold whitespace-nowrap" },
-            "Subscribe",
-            React.createElement(ArrowRight, { className: "ml-2 w-4 h-4" })
+            "div",
+            { className: "lg:col-span-1 text-center lg:text-left" },
+            React.createElement("h4", { className: "text-xl font-bold text-white mb-6" }, "Quick Links"),
+            React.createElement(
+              "ul",
+              { className: "space-y-4" }, // yaha se gap control hoga
+              quickLinks.map((link, index) =>
+                React.createElement(
+                  "li",
+                  { key: index, className: "py-[8px]" }, // yaha se "space-y-1" hata diya
+                  React.createElement(
+                    "button",
+                    {
+                      onClick: () => onNavigate(link.page),
+                      className: `text-base text-gray-300 hover:text-white transition-colors duration-200 text-left ${
+                        currentPage === link.page ? "text-purple-400" : ""
+                      }`
+                    },
+                    link.name
+                  )
+                )
+              )
+            )
+          ),
+          
+          /* SERVICES */
+          React.createElement(
+            "div",
+            { className: "lg:col-span-1 text-center lg:text-left" },
+            React.createElement("h4", { className: "text-xl font-bold text-white mb-6" }, "Services"),
+            React.createElement(
+              "ul",
+              { className: "space-y-4" }, // sirf yahi spacing control karega
+              services.map((service, index) =>
+                React.createElement(
+                  "li",
+                  { key: index, className: "py-[8px]" }, // "space-y-1" hata diya
+                  React.createElement(
+                    "a",
+                    {
+                      href: "#",
+                      className: "text-base text-gray-300 hover:text-white transition-colors duration-200"
+                    },
+                    service
+                  )
+                )
+              )
+            )
+          ),
+
+          /* CONTACT INFO */
+          React.createElement(
+            "div",
+            { className: "lg:col-span-2 text-center lg:text-left" },
+            React.createElement("h4", { className: "text-xl font-bold text-white mb-6" }, "Get In Touch"),
+            React.createElement(
+              "div",
+              { className: "space-y-5" },
+              contactInfo.map((contact, index) =>
+                React.createElement(
+                  "div",
+                  { key: index, className: "flex items-center space-x-3 justify-center lg:justify-start" },
+                  React.createElement(contact.icon, { className: "w-5 h-5 text-purple-400 flex-shrink-0" }),
+                  React.createElement(
+                    "a",
+                    {
+                      href: contact.href,
+                      className: "text-base text-gray-300 hover:text-white transition-colors duration-200"
+                    },
+                    contact.text
+                  )
+                )
+              )
+            ),
+            
+            /* MAP COMPONENT */
+            React.createElement(
+              "div",
+              { className: "mt-8" },
+              React.createElement("h5", { className: "text-white font-semibold mb-4" }, "Our Location"),
+              React.createElement(
+                "div",
+                { className: "w-full h-48 rounded-lg overflow-hidden flex justify-center" },
+                React.createElement(MapComponent)
+              )
+            ),
+            
+            React.createElement(
+              "div",
+              { className: "mt-10" },
+              React.createElement("h5", { className: "text-white font-semibold mb-4" }, "Follow Us"),
+              React.createElement(
+                "div",
+                { className: "flex space-x-4 justify-center lg:justify-start" },
+                socialLinks.map((social, index) =>
+                  React.createElement(
+                    "a",
+                    {
+                      key: index,
+                      href: social.href,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      className: `w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-200 hover:scale-110`
+                    },
+                    React.createElement(social.icon, { className: "w-5 h-5" })
+                  )
+                )
+              )
+            )
           )
-        ),
-        React.createElement("p", { className: "text-sm text-gray-400 text-center mt-4" },
-          "Join 10,000+ marketers. No spam, unsubscribe anytime."
         )
       ),
 
-      /* ---------------- OTHER SECTIONS (Quick Links, Services, Resources, Contact Info, Social Links, Footer Bottom, etc.) ---------------- */
-      // 👆 Yaha tak maine full structure bana diya hai
-      // 👇 Niche ke parts (Quick Links, Services, Resources, Contact, Social, Legal Links, CTA button) bhi isi tarah React.createElement me likhne hain
+      /* ---------------- SEPARATOR ---------------- */
+      React.createElement(Separator, { className: "bg-slate-800" }),
+
+      /* ---------------- FOOTER BOTTOM ---------------- */
+      React.createElement(
+        "div",
+        { className: "py-10" },
+        React.createElement(
+          "div",
+          { className: "flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 text-center md:text-left" },
+          
+          /* COPYRIGHT */
+          React.createElement(
+            "div",
+            { className: "flex items-center space-x-2 text-gray-400" },
+            React.createElement("span", null, "© " + currentYear + " Codezyra. All rights reserved."),
+            React.createElement(Heart, { className: "w-4 h-4 text-red-400" })
+          ),
+
+          /* BRANDING */
+          React.createElement(
+            "div",
+            { className: "flex items-center space-x-2 text-gray-400" },
+            React.createElement(Zap, { className: "w-4 h-4 text-yellow-400" }),
+            React.createElement("span", { className: "text-sm" }, "Powered by Codezyra")
+          )
+        )
+      )
     )
   );
 }

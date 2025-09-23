@@ -72,12 +72,12 @@ export default function Hero() {
       React.createElement(
         "div",
         { className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-16" },
-        
+
         /* Left Side - Text Content */
         React.createElement(
           motion.div,
-          { variants: containerVariants, initial: "hidden", animate: "visible", className: "space-y-8 text-left" },
-          
+          { variants: containerVariants, initial: "hidden", animate: "visible", className: "space-y-8 text-center lg:text-left" },
+
           /* Heading */
           React.createElement(
             motion.div,
@@ -124,7 +124,7 @@ export default function Hero() {
           /* Buttons */
           React.createElement(
             motion.div,
-            { variants: itemVariants, className: "flex flex-col sm:flex-row items-start gap-4 pt-8" },
+            { variants: itemVariants, className: "flex flex-col sm:flex-row items-center lg:items-start justify-between lg:justify-start gap-4 pt-8" },
             React.createElement(
               Button,
               {
@@ -146,23 +146,13 @@ export default function Hero() {
                   "absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
                 initial: false
               })
-            ),
-            React.createElement(
-              Button,
-              {
-                variant: "outline",
-                className:
-                  "group flex items-center border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500/10 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:border-purple-400"
-              },
-              React.createElement(Play, { className: "mr-2 w-5 h-5" }),
-              "Watch Our Work"
             )
           ),
 
           /* Stats */
           React.createElement(
             motion.div,
-            { variants: itemVariants, className: "pt-8 grid grid-cols-2 lg:grid-cols-4 gap-6" },
+            { variants: itemVariants, className: "flex justify-c w-full  gap-27" },
             stats.map((stat, index) => {
               const Icon = stat.icon;
               return React.createElement(
@@ -203,23 +193,22 @@ export default function Hero() {
           )
         ),
 
-        /* Right Side - Image */
         React.createElement(
           motion.div,
           {
             initial: { opacity: 0, x: 50 },
             animate: { opacity: 1, x: 0 },
             transition: { delay: 0.5, duration: 1 },
-            className: "relative -mt-8"
+            className: "relative z-10"
           },
           React.createElement(
             "div",
             { className: "relative" },
-            /* Main Image Container */
             React.createElement(
               motion.div,
               {
-                animate: { y: [0, -10, 0] },
+                initial: { y: -64 }, // Move image up initially
+                animate: { y: [-64, -74, -64] }, // Floating effect
                 transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                 className: "relative z-10"
               },
@@ -229,69 +218,14 @@ export default function Hero() {
                 className: "w-full h-[600px] object-cover rounded-2xl shadow-2xl"
               })
             ),
+
             
-            /* Floating Elements */
-            React.createElement(
-              motion.div,
-              {
-                animate: { rotate: [0, 360], scale: [1, 1.1, 1] },
-                transition: { duration: 8, repeat: Infinity, ease: "linear" },
-                className: "absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-500/30 to-teal-500/30 rounded-full blur-sm"
-              }
-            ),
-            React.createElement(
-              motion.div,
-              {
-                animate: { rotate: [360, 0], y: [0, -20, 0] },
-                transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                className: "absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-teal-500/30 to-purple-500/30 rounded-full blur-sm"
-              }
-            ),
-            
-            /* Decorative Elements */
-            React.createElement(
-              motion.div,
-              {
-                animate: { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] },
-                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                className: "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-purple-400/20 rounded-full"
-              }
-            ),
-            React.createElement(
-              motion.div,
-              {
-                animate: { scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] },
-                transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                className: "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-teal-400/20 rounded-full"
-              }
-            )
           )
         )
       ),
+
+     
       
-      /* Scroll Indicator */
-      React.createElement(
-        motion.div,
-        {
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: 1, y: 0 },
-          transition: { delay: 2, duration: 1 },
-          className: "absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        },
-        React.createElement(
-          motion.div,
-          {
-            animate: { y: [0, 10, 0] },
-            transition: { duration: 2, repeat: Infinity },
-            className: "w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center"
-          },
-          React.createElement(motion.div, {
-            animate: { y: [0, 16, 0] },
-            transition: { duration: 2, repeat: Infinity },
-            className: "w-1 h-3 bg-gradient-to-b from-purple-400 to-teal-400 rounded-full mt-2"
-          })
-        )
-      )
     )
   );
 }

@@ -176,7 +176,7 @@ export default function Services({ detailed = false }) {
   if (detailed) {
     return /*#__PURE__*/ React.createElement(
       "section",
-      { className: "py-20 px-4 sm:px-6 lg:px-8" },
+      { className: "py-25 px-4 sm:px-6 lg:px-8" },
       /*#__PURE__*/ React.createElement(
         "div",
         { className: "max-w-7xl mx-auto" },
@@ -265,24 +265,13 @@ export default function Services({ detailed = false }) {
         )
       )
     );
-  }
+  } 
 
   // Agar detailed false ho
-  return /*#__PURE__*/ React.createElement(
-    "section",
-    { ref: ref, className: "py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden" },
+  return (
     /*#__PURE__*/ React.createElement(
       "div",
-      { className: "absolute inset-0" },
-      /*#__PURE__*/ React.createElement(motion.div, {
-        animate: { x: [0, 100, 0], y: [0, -50, 0], rotate: [0, 180, 360] },
-        transition: { duration: 30, repeat: Infinity, ease: "linear" },
-        className: "absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-teal-500/10 rounded-full blur-xl",
-      })
-    ),
-    /*#__PURE__*/ React.createElement(
-      "div",
-      { className: "max-w-7xl mx-auto relative z-10" },
+      { className: "max-w-7xl mx-auto relative z-10", ref },
       /*#__PURE__*/ React.createElement(
         motion.div,
         {
