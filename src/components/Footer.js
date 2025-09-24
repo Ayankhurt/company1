@@ -78,10 +78,9 @@ export default function Footer({ currentPage, onNavigate }) {
   return React.createElement(
     "footer",
     { className: "relative bg-slate-900 border-t border-slate-800 overflow-hidden" },
-    /* ---------------- BACKGROUND ANIMATED DIVS ---------------- */
-    React.createElement(
-      "div",
-      { className: "absolute inset-0" },
+
+    // Background
+    React.createElement("div", { className: "absolute inset-0" },
       React.createElement(motion.div, {
         animate: { x: [0, 50, 0], y: [0, -25, 0], rotate: [0, 90, 180] },
         transition: { duration: 30, repeat: Infinity, ease: "linear" },
@@ -94,39 +93,32 @@ export default function Footer({ currentPage, onNavigate }) {
       })
     ),
 
-    React.createElement(
-      "div",
-      { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
+    // Container
+    React.createElement("div", { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
 
-      /* NEWSLETTER SECTION */
-      React.createElement(
-        motion.div,
-        {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8 },
-          viewport: { once: true },
-          className: "py-16 border-b border-slate-800"
-        },
-        React.createElement(
-          "div",
-          { className: "text-center mb-8" },
+      // Newsletter
+      React.createElement(motion.div, {
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.8 },
+        viewport: { once: true },
+        className: "py-16 border-b border-slate-800"
+      },
+        React.createElement("div", { className: "text-center mb-8" },
           React.createElement("h3", { className: "text-3xl font-bold text-white mb-4" }, "Stay Ahead of the Digital Curve"),
           React.createElement("p", { className: "text-xl text-gray-300 max-w-2xl mx-auto" },
             "Get exclusive digital marketing insights, industry trends, and growth strategies delivered to your inbox."
           )
         ),
-        React.createElement(
-          "div",
-          { className: "flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto" },
+        React.createElement("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto" },
           React.createElement(Input, {
             type: "email",
             placeholder: "Enter your email address",
             className: "bg-slate-800/50 border-slate-700 focus:border-purple-500 text-white"
           }),
-          React.createElement(
-            Button,
-            { className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-2 font-semibold whitespace-nowrap" },
+          React.createElement(Button, {
+            className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-2 font-semibold whitespace-nowrap"
+          },
             "Subscribe",
             React.createElement(ArrowRight, { className: "ml-2 w-4 h-4" })
           )
@@ -136,9 +128,194 @@ export default function Footer({ currentPage, onNavigate }) {
         )
       ),
 
-      /* ---------------- OTHER SECTIONS (Quick Links, Services, Resources, Contact Info, Social Links, Footer Bottom, etc.) ---------------- */
-      // 👆 Yaha tak maine full structure bana diya hai
-      // 👇 Niche ke parts (Quick Links, Services, Resources, Contact, Social, Legal Links, CTA button) bhi isi tarah React.createElement me likhne hain
+      // Main Footer
+      React.createElement("div", { className: "py-16" },
+        React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-5 gap-12" },
+
+          // Company Info
+          React.createElement(motion.div, {
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.1 },
+            viewport: { once: true },
+            className: "lg:col-span-2"
+          },
+            React.createElement("div", {
+              className: "flex items-center mb-6 cursor-pointer",
+              onClick: () => onNavigate("home")
+            },
+              React.createElement("div", { className: "relative" },
+                React.createElement(motion.div, {
+                  animate: { rotate: [0, 360] },
+                  transition: { duration: 20, repeat: Infinity, ease: "linear" },
+                  className: "w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 via-teal-400 to-purple-600 mr-3"
+                }),
+                React.createElement("div", {
+                  className: "absolute inset-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 via-teal-400 to-purple-600 mr-3 opacity-50 animate-pulse"
+                })
+              ),
+              React.createElement("span", {
+                className: "text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-teal-200 bg-clip-text text-transparent"
+              }, "Codezyra")
+            ),
+            React.createElement("p", { className: "text-gray-300 mb-6 leading-relaxed" },
+              "We're a passionate team of digital marketing experts dedicated to helping businesses achieve extraordinary growth through innovative strategies and cutting-edge technology."
+            ),
+            React.createElement("div", { className: "space-y-3 mb-6" },
+              contactInfo.map((info, index) => {
+                const Icon = info.icon;
+                return React.createElement(motion.a, {
+                  key: index,
+                  href: info.href,
+                  whileHover: { x: 5 },
+                  className: "flex items-center text-gray-300 hover:text-purple-400 transition-colors group"
+                },
+                  React.createElement(Icon, { className: "w-4 h-4 mr-3 text-purple-400 group-hover:text-teal-400 transition-colors" }),
+                  info.text
+                );
+              })
+            ),
+            React.createElement("div", { className: "flex items-center space-x-4" },
+              socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return React.createElement(motion.a, {
+                  key: index,
+                  href: social.href,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  whileHover: { scale: 1.2, y: -2 },
+                  whileTap: { scale: 0.9 },
+                  className: `w-10 h-10 bg-slate-800 hover:bg-gradient-to-br hover:from-purple-600/20 hover:to-teal-500/20 border border-slate-700 hover:border-purple-500/50 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300`
+                },
+                  React.createElement(Icon, { className: "w-5 h-5" })
+                );
+              })
+            )
+          ),
+
+          // Quick Links
+          React.createElement(motion.div, {
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.2 },
+            viewport: { once: true }
+          },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Quick Links"),
+            React.createElement("ul", { className: "space-y-3" },
+              quickLinks.map((link) =>
+                React.createElement("li", { key: link.page },
+                  React.createElement(motion.button, {
+                    onClick: () => onNavigate(link.page),
+                    whileHover: { x: 5 },
+                    className: `text-gray-300 hover:text-purple-400 transition-colors ${currentPage === link.page ? "text-purple-400" : ""}`
+                  }, link.name)
+                )
+              )
+            )
+          ),
+
+          // Services
+          React.createElement(motion.div, {
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.3 },
+            viewport: { once: true }
+          },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Services"),
+            React.createElement("ul", { className: "space-y-3" },
+              services.map((service, index) =>
+                React.createElement("li", { key: index },
+                  React.createElement(motion.button, {
+                    onClick: () => onNavigate("services"),
+                    whileHover: { x: 5 },
+                    className: "text-gray-300 hover:text-teal-400 transition-colors"
+                  }, service)
+                )
+              )
+            )
+          ),
+
+          // Resources
+          React.createElement(motion.div, {
+            initial: { opacity: 0, y: 30 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.8, delay: 0.4 },
+            viewport: { once: true }
+          },
+            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Resources"),
+            React.createElement("ul", { className: "space-y-3" },
+              resources.map((resource, index) =>
+                React.createElement("li", { key: index },
+                  React.createElement(motion.a, {
+                    href: "#",
+                    whileHover: { x: 5 },
+                    className: "text-gray-300 hover:text-purple-400 transition-colors"
+                  }, resource)
+                )
+              )
+            )
+          )
+        )
+      ),
+
+      React.createElement(Separator, { className: "bg-slate-800" }),
+
+      // Bottom Footer
+      React.createElement("div", { className: "py-8" },
+        React.createElement("div", { className: "flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0" },
+
+          // Copyright
+          React.createElement(motion.div, {
+            initial: { opacity: 0 },
+            whileInView: { opacity: 1 },
+            transition: { duration: 0.8 },
+            viewport: { once: true },
+            className: "flex items-center text-gray-400"
+          },
+            React.createElement("span", null, `© ${currentYear} Codezyra. Made with`),
+            React.createElement(motion.div, {
+              animate: { scale: [1, 1.2, 1] },
+              transition: { duration: 1, repeat: Infinity },
+              className: "mx-2"
+            }, React.createElement(Heart, { className: "w-4 h-4 text-red-400 fill-current" })),
+            React.createElement("span", null, "in New York")
+          ),
+
+          // Legal Links
+          React.createElement(motion.div, {
+            initial: { opacity: 0 },
+            whileInView: { opacity: 1 },
+            transition: { duration: 0.8, delay: 0.2 },
+            viewport: { once: true },
+            className: "flex flex-wrap items-center gap-6"
+          },
+            legalLinks.map((link, index) => React.createElement(React.Fragment, { key: link },
+              React.createElement(motion.a, {
+                href: "#",
+                whileHover: { y: -1 },
+                className: "text-gray-400 hover:text-white transition-colors text-sm"
+              }, link),
+              index < legalLinks.length - 1 && React.createElement("span", { className: "text-gray-600" }, "•")
+            ))
+          ),
+
+          // CTA Button
+          React.createElement(motion.div, {
+            initial: { opacity: 0 },
+            whileInView: { opacity: 1 },
+            transition: { duration: 0.8, delay: 0.4 },
+            viewport: { once: true }
+          },
+            React.createElement(Button, {
+              onClick: () => onNavigate("contact"),
+              className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105"
+            },
+              React.createElement(Zap, { className: "mr-2 w-4 h-4" }),
+              "Get Started"
+            )
+          )
+        )
+      )
     )
   );
 }

@@ -6,6 +6,7 @@ import MapComponent from './components/ui/MapComponent';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
+import Values from './components/Values';
 import Pricing from './components/Pricing';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
@@ -65,7 +66,8 @@ export default function App() {
         return /*#__PURE__*/React.createElement(React.Fragment, null,
           /*#__PURE__*/React.createElement(Hero, { onNavigate: handleNavigation }),
           /*#__PURE__*/React.createElement(Services, null),
-          /*#__PURE__*/React.createElement(About, null)
+          /*#__PURE__*/React.createElement(About, null),
+          /*#__PURE__*/React.createElement(Values, null)
         );
       case 'services':
         return /*#__PURE__*/React.createElement(Services, {
@@ -85,7 +87,8 @@ export default function App() {
         return /*#__PURE__*/React.createElement(React.Fragment, null,
           /*#__PURE__*/React.createElement(Hero, { onNavigate: handleNavigation }),
           /*#__PURE__*/React.createElement(Services, null),
-          /*#__PURE__*/React.createElement(About, null)
+          /*#__PURE__*/React.createElement(About, null),
+          /*#__PURE__*/React.createElement(Values, null)
         );
     }
   };
