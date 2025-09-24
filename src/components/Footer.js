@@ -137,7 +137,7 @@ export default function Footer({ currentPage, onNavigate }) {
           React.createElement(
             "div",
             { className: "lg:col-span-1" },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Quick Links"),
+            React.createElement("h4", { className: "text-lg font-bold font-semibold text-white mb-6" }, "Quick Links"),
             React.createElement(
               "ul",
               { className: "space-y-3" },
