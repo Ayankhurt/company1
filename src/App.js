@@ -63,7 +63,7 @@ export default function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Hero, null), /*#__PURE__*/React.createElement(Services, null), /*#__PURE__*/React.createElement(CaseStudies, null), /*#__PURE__*/);
+        return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Hero, { onNavigate: handleNavigation }), /*#__PURE__*/React.createElement(Services, null), /*#__PURE__*/React.createElement(About, null), /*#__PURE__*/React.createElement(CaseStudies, null), /*#__PURE__*/);
       case 'services':
         return /*#__PURE__*/React.createElement(Services, {
           detailed: true
@@ -83,7 +83,7 @@ export default function App() {
       case 'contact':
         return /*#__PURE__*/React.createElement(Contact, null);
       default:
-        return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Hero, null), /*#__PURE__*/React.createElement(Services, null), /*#__PURE__*/React.createElement(CaseStudies, null), /*#__PURE__*/React.createElement(About, null));
+        return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Hero, { onNavigate: handleNavigation }), /*#__PURE__*/React.createElement(Services, null), /*#__PURE__*/React.createElement(CaseStudies, null), /*#__PURE__*/React.createElement(About, null));
     }
   };
   return /*#__PURE__*/React.createElement("div", {

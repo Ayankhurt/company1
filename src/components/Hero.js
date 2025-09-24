@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play, TrendingUp, Users, Award, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function Hero() {
+export default function Hero({ onNavigate }) {
   const [currentStatIndex, setCurrentStatIndex] = useState(0);
 
   const stats = [
@@ -129,7 +129,8 @@ export default function Hero() {
               Button,
               {
                 className:
-                  "group relative overflow-hidden bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-purple-500/25"
+                  "group relative overflow-hidden bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-purple-500/25",
+                onClick: () => onNavigate("contact")
               },
               React.createElement(
                 motion.span,

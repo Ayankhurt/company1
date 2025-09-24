@@ -83,8 +83,8 @@ export default function Services({ detailed = false }) {
     },
     {
       icon: Mail,
-      title: "Vedio Editing",
-      shortDesc: "Nurture leads and drive sales with targeted email campaigns",
+       title: "Video Editing",
+       shortDesc: "Create engaging videos that captivate your audience",
       longDesc:
         "Video editing is the process of arranging and modifying video clips to create a polished final product. It involves cutting, adding effects, transitions, sound, and color correction to tell a story or deliver a message effectively. Good editing enhances the visual appeal and keeps viewers engaged.",
       features: [
@@ -138,7 +138,7 @@ export default function Services({ detailed = false }) {
     {
       icon: TrendingUp,
       title: "Social Media Marketing",
-      shortDesc: "Optimize your website to convert more visitors into customers",
+       shortDesc: "Build engaging communities and drive brand awareness",
       longDesc:
         "Social media marketing promotes products or services through platforms like Facebook, Instagram, and LinkedIn. It helps businesses increase brand awareness, engage with audiences, and drive traffic through creative content and targeted ads.",
       features: [
@@ -271,7 +271,7 @@ export default function Services({ detailed = false }) {
   return (
     /*#__PURE__*/ React.createElement(
       "div",
-      { className: "max-w-7xl mx-auto relative z-10", ref },
+      { className: "max-w-7xl mx-auto relative z-10 mb-16", ref },
       /*#__PURE__*/ React.createElement(
         motion.div,
         {
