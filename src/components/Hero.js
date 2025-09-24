@@ -38,7 +38,6 @@ export default function Hero({ onNavigate }) {
     "section",
     { className: "relative min-h-screen flex items-center justify-center overflow-hidden pt-16" },
 
-    /* ------- Gradient background circles ------- */
     React.createElement(
       "div",
       { className: "absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900" },

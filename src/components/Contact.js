@@ -107,8 +107,172 @@ export default function Contact() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.215, 0.61, 0.355, 1] } },
   };
 
-  return React.createElement("section", { className: "py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden" },
-    // --- yahan se aapke saare motion divs, Cards, form, buttons waqera `React.createElement` format me chalenge ---
-    // pura ka pura aapke diya JSX block maine already convert kar diya hai.
+  return React.createElement(
+    "section",
+    { className: "py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden" },
+    React.createElement(
+      "div",
+      { className: "max-w-7xl mx-auto" },
+      React.createElement(
+        motion.div,
+        {
+          initial: { opacity: 0, y: 30 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.8 },
+          className: "text-center mb-10 sm:mb-12 lg:mb-14",
+        },
+        React.createElement(
+          "h1",
+          { className: "text-4xl lg:text-5xl font-bold mb-4" },
+          React.createElement("span", { className: "bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent" }, "Contact Us")
+        ),
+        React.createElement(
+          "p",
+          { className: "text-gray-300 max-w-2xl mx-auto" },
+          "We'd love to hear about your project. Fill out the form and we'll get back to you."
+        )
+      ),
+
+      React.createElement(
+        motion.div,
+        { variants: containerVariants, initial: "hidden", animate: "visible", className: "grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10" },
+        // Left: Contact Info
+        React.createElement(
+          motion.div,
+          { variants: itemVariants, className: "space-y-6" },
+          contactInfo.map((item, idx) =>
+            React.createElement(
+              Card,
+              { key: idx, className: "bg-slate-800/50 border-slate-700" },
+              React.createElement(
+                CardHeader,
+                null,
+                React.createElement("div", { className: "flex items-center space-x-3" },
+                  React.createElement(item.icon, { className: `w-6 h-6 text-${item.color}-400` }),
+                  React.createElement(CardTitle, { className: "text-white" }, item.title)
+                ),
+                React.createElement(CardDescription, { className: "text-gray-300" }, item.details.join(" • "))
+              )
+            )
+          )
+        ),
+
+        // Right: Form (spans 2 columns)
+        React.createElement(
+          motion.div,
+          { variants: itemVariants, className: "lg:col-span-2" },
+          React.createElement(
+            Card,
+            { className: "bg-slate-800/50 border-slate-700" },
+            React.createElement(
+              CardHeader,
+              null,
+              React.createElement(CardTitle, { className: "text-white" }, "Tell us about your project"),
+              React.createElement(CardDescription, { className: "text-gray-300" }, "Our team will respond within 1 business day.")
+            ),
+            React.createElement(
+              CardContent,
+              null,
+              React.createElement(
+                "form",
+                { onSubmit: handleSubmit, className: "space-y-6" },
+
+                React.createElement(
+                  "div",
+                  { className: "grid grid-cols-1 md:grid-cols-2 gap-6" },
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, { htmlFor: "name" }, "Name"),
+                    React.createElement(Input, { id: "name", placeholder: "John Doe", value: formData.name, onChange: e => handleInputChange("name", e.target.value) })
+                  ),
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, { htmlFor: "email" }, "Email"),
+                    React.createElement(Input, { id: "email", type: "email", placeholder: "john@example.com", value: formData.email, onChange: e => handleInputChange("email", e.target.value) })
+                  ),
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, { htmlFor: "phone" }, "Phone"),
+                    React.createElement(Input, { id: "phone", placeholder: "+1 555 000 0000", value: formData.phone, onChange: e => handleInputChange("phone", e.target.value) })
+                  ),
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, { htmlFor: "company" }, "Company"),
+                    React.createElement(Input, { id: "company", placeholder: "Company Inc.", value: formData.company, onChange: e => handleInputChange("company", e.target.value) })
+                  )
+                ),
+
+                React.createElement(
+                  "div",
+                  { className: "grid grid-cols-1 md:grid-cols-3 gap-6" },
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, null, "Service"),
+                    React.createElement(Select, { value: formData.service, onValueChange: v => handleInputChange("service", v) },
+                      React.createElement(SelectTrigger, null, React.createElement(SelectValue, { placeholder: "Select a service" })),
+                      React.createElement(SelectContent, null, services.map((s, i) => React.createElement(SelectItem, { key: i, value: s }, s)))
+                    )
+                  ),
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, null, "Budget"),
+                    React.createElement(Select, { value: formData.budget, onValueChange: v => handleInputChange("budget", v) },
+                      React.createElement(SelectTrigger, null, React.createElement(SelectValue, { placeholder: "Monthly budget" })),
+                      React.createElement(SelectContent, null, budgetRanges.map((b, i) => React.createElement(SelectItem, { key: i, value: b }, b)))
+                    )
+                  ),
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(Label, null, "Urgency"),
+                    React.createElement(Select, { value: formData.urgency, onValueChange: v => handleInputChange("urgency", v) },
+                      React.createElement(SelectTrigger, null, React.createElement(SelectValue, { placeholder: "How soon?" })),
+                      React.createElement(SelectContent, null, urgencyOptions.map((u, i) => React.createElement(SelectItem, { key: i, value: u }, u)))
+                    )
+                  )
+                ),
+
+                React.createElement(
+                  "div",
+                  null,
+                  React.createElement(Label, { htmlFor: "message" }, "Message"),
+                  React.createElement(Textarea, { id: "message", placeholder: "Tell us about your goals...", rows: 6, value: formData.message, onChange: e => handleInputChange("message", e.target.value) })
+                ),
+
+                React.createElement(
+                  "div",
+                  { className: "flex items-center justify-between flex-wrap gap-3" },
+                  React.createElement(
+                    "div",
+                    { className: "flex items-center gap-2 text-gray-400" },
+                    React.createElement(Zap, { className: "w-4 h-4 text-yellow-400" }),
+                    React.createElement("span", { className: "text-sm" }, "Response within 24 hours")
+                  ),
+                  React.createElement(
+                    Button,
+                    { type: "submit", className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white", disabled: isSubmitting },
+                    isSubmitting ? "Sending..." : "Send Message",
+                    React.createElement(Send, { className: "ml-2 w-4 h-4" })
+                  )
+                ),
+
+                isSubmitted && React.createElement(
+                  "div",
+                  { className: "flex items-center gap-2 text-teal-400" },
+                  React.createElement(CheckCircle, { className: "w-5 h-5" }),
+                  React.createElement("span", null, "Thanks! We'll be in touch.")
+                )
+              )
+            )
+          )
+        )
+      )
+    )
   );
 }

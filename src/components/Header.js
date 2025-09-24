@@ -18,7 +18,6 @@ export default function Header({ currentPage, onNavigate }) {
   const navItems = [
     { name: "Home", page: "home" },
     { name: "Services", page: "services" },
-    { name: "Case Studies", page: "case-studies" },
     { name: "About", page: "about" },
     { name: "Pricing", page: "pricing" },
     { name: "Blog", page: "blog" },

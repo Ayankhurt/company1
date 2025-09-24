@@ -179,7 +179,7 @@ export default function Services({ detailed = false }) {
       { className: "py-25 px-4 sm:px-6 lg:px-8" },
       /*#__PURE__*/ React.createElement(
         "div",
-        { className: "max-w-7xl mx-auto" },
+        { className: "max-w-7xl mx-auto py-25" },
         /*#__PURE__*/ React.createElement(
           motion.div,
           {
