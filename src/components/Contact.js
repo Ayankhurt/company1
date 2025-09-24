@@ -119,7 +119,7 @@ export default function Contact() {
           initial: { opacity: 0, y: 30 },
           animate: { opacity: 1, y: 0 },
           transition: { duration: 0.8 },
-          className: "text-center mb-10 sm:mb-12 lg:mb-14",
+          className: "text-center mb-12 sm:mb-14 lg:mb-16",
         },
         React.createElement(
           "h1",
@@ -135,7 +135,7 @@ export default function Contact() {
 
       React.createElement(
         motion.div,
-        { variants: containerVariants, initial: "hidden", animate: "visible", className: "grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10" },
+        { variants: containerVariants, initial: "hidden", animate: "visible", className: "grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12" },
         // Left: Contact Info
         React.createElement(
           motion.div,
@@ -175,11 +175,11 @@ export default function Contact() {
               null,
               React.createElement(
                 "form",
-                { onSubmit: handleSubmit, className: "space-y-6" },
+                { onSubmit: handleSubmit, className: "space-y-8" },
 
                 React.createElement(
                   "div",
-                  { className: "grid grid-cols-1 md:grid-cols-2 gap-6" },
+                  { className: "grid grid-cols-1 md:grid-cols-2 gap-8" },
                   React.createElement(
                     "div",
                     null,
@@ -208,7 +208,7 @@ export default function Contact() {
 
                 React.createElement(
                   "div",
-                  { className: "grid grid-cols-1 md:grid-cols-3 gap-6" },
+                  { className: "grid grid-cols-1 md:grid-cols-3 gap-8" },
                   React.createElement(
                     "div",
                     null,
