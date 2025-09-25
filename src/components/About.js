@@ -150,17 +150,17 @@ export default function About({ detailed = false }) {
               React.createElement(
                 "p",
                 { className: "text-gray-300 mb-6 leading-relaxed" },
-                "Founded in 2018, Codezyra began with a simple mission: to democratize digital marketing success for businesses of all sizes. What started as a small team of marketing enthusiasts has grown into a full-service digital agency serving clients across 50+ countries."
+                "Founded in 2025, Codezyra set out with a clear goal: to empower businesses of all sizes with cutting-edge digital marketing solutions. Starting as a passionate team of innovators, Codezyra quickly expanded its reach, now serving clients in over 50 countries worldwide."
               ),
               React.createElement(
                 "p",
                 { className: "text-gray-300 mb-6 leading-relaxed" },
-                "We believe that every business deserves access to world-class digital marketing strategies, regardless of their size or budget. That's why we've built our processes around transparency, results, and long-term partnerships."
+                "Our philosophy is simple — transparency, dedication, and measurable results drive our success. We believe every business deserves expert marketing strategies, no matter the budget."
               ),
               React.createElement(
                 "p",
                 { className: "text-gray-300 leading-relaxed" },
-                "Today, we're proud to have helped over 500 businesses achieve an average growth rate of 250%, with many of our clients becoming industry leaders in their respective markets."
+                "To date, we have helped over 500 businesses achieve remarkable growth, averaging 250%, transforming many into leaders in their industries."
               )
             ),
             React.createElement(

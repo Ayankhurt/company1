@@ -5,15 +5,19 @@ import Header from './components/Header';
 import MapComponent from './components/ui/MapComponent';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import ServiceDetail from './components/ServiceDetail';
 import About from './components/About';
 import Values from './components/Values';
 import Pricing from './components/Pricing';
 import Blog from './components/Blog';
+import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/globals.css';
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [currentBlogPost, setCurrentBlogPost] = useState(null);
+  const [currentService, setCurrentService] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,8 +25,10 @@ export default function App() {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-  const handleNavigation = page => {
+  const handleNavigation = (page, blogPostId = null, serviceId = null) => {
     setCurrentPage(page);
+    setCurrentBlogPost(blogPostId);
+    setCurrentService(serviceId);
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -70,9 +76,9 @@ export default function App() {
           /*#__PURE__*/React.createElement(Values, null)
         );
       case 'services':
-        return /*#__PURE__*/React.createElement(Services, {
-          detailed: true
-        });
+        return currentService 
+          ? /*#__PURE__*/React.createElement(ServiceDetail, { serviceId: currentService, onNavigate: handleNavigation })
+          : /*#__PURE__*/React.createElement(Services, { detailed: true, onNavigate: handleNavigation });
       case 'about':
         return /*#__PURE__*/React.createElement(About, {
           detailed: true
@@ -80,7 +86,9 @@ export default function App() {
       case 'pricing':
         return /*#__PURE__*/React.createElement(Pricing, null);
       case 'blog':
-        return /*#__PURE__*/React.createElement(Blog, null);
+        return currentBlogPost 
+          ? /*#__PURE__*/React.createElement(BlogPost, { postId: currentBlogPost, onNavigate: handleNavigation })
+          : /*#__PURE__*/React.createElement(Blog, { onNavigate: handleNavigation });
       case 'contact':
         return /*#__PURE__*/React.createElement(Contact, null);
       default:

@@ -166,10 +166,23 @@ export default function Hero({ onNavigate }) {
                   },
                   transition: { duration: 0.5 },
                   className:
-                    "text-center p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 " +
+                    "text-center p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 cursor-pointer " +
                     (currentStatIndex === index
                       ? "bg-gradient-to-br from-purple-500/20 to-teal-500/20 border border-purple-500/30"
-                      : "bg-slate-800/30 border border-slate-700/50")
+                      : "bg-slate-800/30 border border-slate-700/50"),
+                  onClick: () => {
+                    // Map stat labels to service IDs
+                    const serviceMapping = {
+                      "Projects Completed": 6, // Web Development
+                      "Client Satisfaction": 1, // SEO
+                      "Average ROI Increase": 3, // Digital Marketing
+                      "Support Available": 7 // UI/UX Design
+                    };
+                    const serviceId = serviceMapping[stat.label];
+                    if (serviceId && onNavigate) {
+                      onNavigate('services', null, serviceId);
+                    }
+                  }
                 },
                 React.createElement(Icon, {
                   className:
