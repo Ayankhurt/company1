@@ -4,7 +4,7 @@ import { Search, MousePointer, Share2, FileText, Mail, Code, Palette, TrendingUp
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
-export default function Services({ detailed = false }) {
+export default function Services({ detailed = false , onNavigate}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -176,10 +176,10 @@ export default function Services({ detailed = false }) {
   if (detailed) {
     return /*#__PURE__*/ React.createElement(
       "section",
-      { className: "py-25 px-4 sm:px-6 lg:px-8" },
+      { className: "mt-12 sm:mt-16 lg:mt-20 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" },
       /*#__PURE__*/ React.createElement(
         "div",
-        { className: "max-w-7xl mx-auto py-25" },
+        { className: "max-w-7xl mx-auto" },
         /*#__PURE__*/ React.createElement(
           motion.div,
           {
@@ -271,7 +271,7 @@ export default function Services({ detailed = false }) {
   return (
     /*#__PURE__*/ React.createElement(
       "div",
-      { className: "max-w-7xl mx-auto relative z-10 mb-16", ref },
+      { className: "max-w-7xl mx-auto relative z-10 mt-12 sm:mt-16 lg:mt-20 mb-16", ref },
       /*#__PURE__*/ React.createElement(
         motion.div,
         {
@@ -350,7 +350,7 @@ export default function Services({ detailed = false }) {
         },
         /*#__PURE__*/ React.createElement(
           Button,
-          { className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl" },
+          {onClick: () => onNavigate("services"), className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl" },
           "View All Services",
           /*#__PURE__*/ React.createElement(ArrowRight, { className: "ml-2 w-5 h-5" })
         )

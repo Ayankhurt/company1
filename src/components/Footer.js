@@ -9,13 +9,13 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowRight,
   Heart,
   Zap
 } from "lucide-react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
+import logoImage from "../images/newlogo.jpg";
+
 
 export default function Footer({ currentPage, onNavigate }) {
   const currentYear = new Date().getFullYear();
@@ -23,7 +23,6 @@ export default function Footer({ currentPage, onNavigate }) {
   const quickLinks = [
     { name: "Home", page: "home" },
     { name: "Services", page: "services" },
-    { name: "Case Studies", page: "case-studies" },
     { name: "About Us", page: "about" },
     { name: "Pricing", page: "pricing" },
     { name: "Blog", page: "blog" },
@@ -31,34 +30,14 @@ export default function Footer({ currentPage, onNavigate }) {
   ];
 
   const services = [
-    "SEO Optimization",
-    "PPC Management",
+    "SEO (Search Engine Optimization)",
+    "Graphic Design",
     "Social Media Marketing",
-    "Content Marketing",
-    "Email Marketing",
     "Web Development",
     "UI/UX Design",
-    "Conversion Optimization"
-  ];
-
-  const resources = [
-    "Digital Marketing Guide",
-    "SEO Checklist",
-    "PPC Calculator",
-    "Social Media Templates",
-    "Content Calendar",
-    "Analytics Dashboard",
-    "ROI Calculator",
-    "Free Consultation"
-  ];
-
-  const legalLinks = [
-    "Privacy Policy",
-    "Terms of Service",
-    "Cookie Policy",
-    "Data Protection",
-    "Refund Policy",
-    "Disclaimer"
+    "App Development",
+    "Digital Marketing",
+    "Video Editing"
   ];
 
   const socialLinks = [
@@ -70,16 +49,16 @@ export default function Footer({ currentPage, onNavigate }) {
   ];
 
   const contactInfo = [
-    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: Mail, text: "hello@codezyra.com", href: "mailto:hello@codezyra.com" },
-    { icon: MapPin, text: "123 Business Ave, New York, NY 10001", href: "https://maps.google.com" }
+    { icon: Phone, text: "+92 311 2070329", href: "tel:+923112070329" },
+    { icon: Mail, text: "codezyra9@gmail.com", href: "mailto:codezyra9@gmail.com" },
+    { icon: MapPin, text: "Block 3 Nazimabad, Karachi, 74600, Pakistan", href: "https://maps.app.goo.gl/Yy8toB8C3mwY7dVz9" }
   ];
 
   return React.createElement(
     "footer",
     { className: "relative bg-slate-900 border-t border-slate-800 overflow-hidden" },
 
-    // Background
+    // Background animated blobs
     React.createElement("div", { className: "absolute inset-0" },
       React.createElement(motion.div, {
         animate: { x: [0, 50, 0], y: [0, -25, 0], rotate: [0, 90, 180] },
@@ -93,46 +72,15 @@ export default function Footer({ currentPage, onNavigate }) {
       })
     ),
 
-    // Container
+    // Content container
     React.createElement("div", { className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
-
-      // Newsletter
-      React.createElement(motion.div, {
-        initial: { opacity: 0, y: 30 },
-        whileInView: { opacity: 1, y: 0 },
-        transition: { duration: 0.8 },
-        viewport: { once: true },
-        className: "py-16 border-b border-slate-800"
-      },
-        React.createElement("div", { className: "text-center mb-8" },
-          React.createElement("h3", { className: "text-3xl font-bold text-white mb-4" }, "Stay Ahead of the Digital Curve"),
-          React.createElement("p", { className: "text-xl text-gray-300 max-w-2xl mx-auto" },
-            "Get exclusive digital marketing insights, industry trends, and growth strategies delivered to your inbox."
-          )
-        ),
-        React.createElement("div", { className: "flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto" },
-          React.createElement(Input, {
-            type: "email",
-            placeholder: "Enter your email address",
-            className: "bg-slate-800/50 border-slate-700 focus:border-purple-500 text-white"
-          }),
-          React.createElement(Button, {
-            className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-2 font-semibold whitespace-nowrap"
-          },
-            "Subscribe",
-            React.createElement(ArrowRight, { className: "ml-2 w-4 h-4" })
-          )
-        ),
-        React.createElement("p", { className: "text-sm text-gray-400 text-center mt-4" },
-          "Join 10,000+ marketers. No spam, unsubscribe anytime."
-        )
-      ),
 
       // Main Footer
       React.createElement("div", { className: "py-16" },
-        React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-5 gap-12" },
+        React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-4 gap-12" },
 
-          // Company Info
+          // Company Info (left, 2 columns)
+          // Company Info (left, 2 columns)
           React.createElement(motion.div, {
             initial: { opacity: 0, y: 30 },
             whileInView: { opacity: 1, y: 0 },
@@ -144,20 +92,16 @@ export default function Footer({ currentPage, onNavigate }) {
               className: "flex items-center mb-6 cursor-pointer",
               onClick: () => onNavigate("home")
             },
-              React.createElement("div", { className: "relative" },
-                React.createElement(motion.div, {
-                  animate: { rotate: [0, 360] },
-                  transition: { duration: 20, repeat: Infinity, ease: "linear" },
-                  className: "w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 via-teal-400 to-purple-600 mr-3"
-                }),
-                React.createElement("div", {
-                  className: "absolute inset-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 via-teal-400 to-purple-600 mr-3 opacity-50 animate-pulse"
-                })
-              ),
+              React.createElement("img", {
+                src: logoImage,
+                className: "w-12 h-12 mr-3 rounded-lg object-contain bg-transparent",
+                alt: "Logo"
+              }),
               React.createElement("span", {
                 className: "text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-teal-200 bg-clip-text text-transparent"
               }, "Codezyra")
             ),
+
             React.createElement("p", { className: "text-gray-300 mb-6 leading-relaxed" },
               "We're a passionate team of digital marketing experts dedicated to helping businesses achieve extraordinary growth through innovative strategies and cutting-edge technology."
             ),
@@ -193,7 +137,7 @@ export default function Footer({ currentPage, onNavigate }) {
             )
           ),
 
-          // Quick Links
+          // Quick Links (center left)
           React.createElement(motion.div, {
             initial: { opacity: 0, y: 30 },
             whileInView: { opacity: 1, y: 0 },
@@ -214,7 +158,7 @@ export default function Footer({ currentPage, onNavigate }) {
             )
           ),
 
-          // Services
+          // Services (center right)
           React.createElement(motion.div, {
             initial: { opacity: 0, y: 30 },
             whileInView: { opacity: 1, y: 0 },
@@ -230,27 +174,6 @@ export default function Footer({ currentPage, onNavigate }) {
                     whileHover: { x: 5 },
                     className: "text-gray-300 hover:text-teal-400 transition-colors"
                   }, service)
-                )
-              )
-            )
-          ),
-
-          // Resources
-          React.createElement(motion.div, {
-            initial: { opacity: 0, y: 30 },
-            whileInView: { opacity: 1, y: 0 },
-            transition: { duration: 0.8, delay: 0.4 },
-            viewport: { once: true }
-          },
-            React.createElement("h4", { className: "text-lg font-semibold text-white mb-6" }, "Resources"),
-            React.createElement("ul", { className: "space-y-3" },
-              resources.map((resource, index) =>
-                React.createElement("li", { key: index },
-                  React.createElement(motion.a, {
-                    href: "#",
-                    whileHover: { x: 5 },
-                    className: "text-gray-300 hover:text-purple-400 transition-colors"
-                  }, resource)
                 )
               )
             )
@@ -278,25 +201,7 @@ export default function Footer({ currentPage, onNavigate }) {
               transition: { duration: 1, repeat: Infinity },
               className: "mx-2"
             }, React.createElement(Heart, { className: "w-4 h-4 text-red-400 fill-current" })),
-            React.createElement("span", null, "in New York")
-          ),
-
-          // Legal Links
-          React.createElement(motion.div, {
-            initial: { opacity: 0 },
-            whileInView: { opacity: 1 },
-            transition: { duration: 0.8, delay: 0.2 },
-            viewport: { once: true },
-            className: "flex flex-wrap items-center gap-6"
-          },
-            legalLinks.map((link, index) => React.createElement(React.Fragment, { key: link },
-              React.createElement(motion.a, {
-                href: "#",
-                whileHover: { y: -1 },
-                className: "text-gray-400 hover:text-white transition-colors text-sm"
-              }, link),
-              index < legalLinks.length - 1 && React.createElement("span", { className: "text-gray-600" }, "•")
-            ))
+            React.createElement("span", null, "in Pakistan")
           ),
 
           // CTA Button

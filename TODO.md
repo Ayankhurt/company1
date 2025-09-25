@@ -1,0 +1,2 @@
+- [x] Import white.jpg image in Header.js
+- [x] Replace animated gradient circle with img element for the logo

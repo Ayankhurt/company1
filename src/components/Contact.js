@@ -78,26 +78,26 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 123-4568"],
+      details: ["+92 311 2070329", "+92 348 2179016"],
       color: "purple",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["hello@codezyra.com", "support@codezyra.com"],
+      details: ["codezyra9@gmail.com"],
       color: "teal",
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["123 Business Avenue", "New York, NY 10001, USA"],
+      details: ["Block 3 Nazimabad, Karachi, 74600, Pakistan"],
       color: "purple",
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: [
-        "Mon - Fri: 9:00 AM - 6:00 PM EST",
+        "Mon - Fri: 9:00 AM - 6:00 PM PKT",
         "Weekend: Emergency only",
       ],
       color: "teal",
@@ -108,9 +108,9 @@ export default function Contact() {
     "SEO (Search Engine Optimization)",
     "Graphic Design",
     "Social Media Marketing",
-    "Email Marketing",
     "Web Development",
     "UI/UX Design",
+    'Digital Marketing',
     "App Development",
     "Video Editing",
   ];
@@ -278,7 +278,7 @@ export default function Contact() {
                     React.createElement(Label, { htmlFor: "name" }, "Name"),
                     React.createElement(Input, {
                       id: "name",
-                      placeholder: "John Doe",
+                      placeholder: "John Doe (Required)",
                       value: formData.name,
                       onChange: (e) =>
                         handleInputChange("name", e.target.value),

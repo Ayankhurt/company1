@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import logoImage from "../images/newlogo.jpg";
 
 export default function Header({ currentPage, onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,20 +53,7 @@ export default function Header({ currentPage, onNavigate }) {
             className: "flex items-center cursor-pointer",
             onClick: () => onNavigate("home")
           },
-          React.createElement(
-            "div",
-            { className: "relative" },
-            React.createElement(motion.div, {
-              animate: { rotate: [0, 360] },
-              transition: { duration: 20, repeat: Infinity, ease: "linear" },
-              className:
-                "w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 via-teal-400 to-purple-600 mr-3"
-            }),
-            React.createElement("div", {
-              className:
-                "absolute inset-0 w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 via-teal-400 to-purple-600 mr-3 opacity-50 animate-pulse"
-            })
-          ),
+          React.createElement("img", { src: logoImage, className: "w-10 h-10 mr-3 rounded-lg", alt: "Logo" }),
           React.createElement(
             "span",
             {

@@ -36,7 +36,8 @@ export default function Hero({ onNavigate }) {
 
   return React.createElement(
     "section",
-    { className: "relative min-h-screen flex items-center justify-center overflow-hidden pt-16" },
+    
+    { className: "relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-10 sm:pb-12 lg:pb-14 mb-12 sm:mb-16 lg:mb-20" },
 
     React.createElement(
       "div",
@@ -75,12 +76,12 @@ export default function Hero({ onNavigate }) {
         /* Left Side - Text Content */
         React.createElement(
           motion.div,
-          { variants: containerVariants, initial: "hidden", animate: "visible", className: "space-y-8 text-center lg:text-left" },
+          { variants: containerVariants, initial: "hidden", animate: "visible", className: "space-y-8 text-left" },
 
           /* Heading */
           React.createElement(
             motion.div,
-            { variants: itemVariants, className: "space-y-4" },
+            { variants: itemVariants, className: "space-y-4 text-left" },
             React.createElement(
               motion.h1,
               { className: "text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" },
@@ -149,48 +150,7 @@ export default function Hero({ onNavigate }) {
             )
           ),
 
-          /* Stats */
-          React.createElement(
-            motion.div,
-            { variants: itemVariants, className: "flex justify-c w-full  gap-27" },
-            stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return React.createElement(
-                motion.div,
-                {
-                  key: index,
-                  initial: { opacity: 0.5, scale: 0.8 },
-                  animate: {
-                    opacity: currentStatIndex === index ? 1 : 0.7,
-                    scale: currentStatIndex === index ? 1.1 : 1
-                  },
-                  transition: { duration: 0.5 },
-                  className:
-                    "text-center p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 " +
-                    (currentStatIndex === index
-                      ? "bg-gradient-to-br from-purple-500/20 to-teal-500/20 border border-purple-500/30"
-                      : "bg-slate-800/30 border border-slate-700/50")
-                },
-                React.createElement(Icon, {
-                  className:
-                    "w-8 h-8 mx-auto mb-3 " +
-                    (currentStatIndex === index ? "text-purple-400" : "text-gray-400")
-                }),
-                React.createElement(
-                  "div",
-                  {
-                    className:
-                      "text-2xl lg:text-3xl font-bold mb-1 " +
-                      (currentStatIndex === index
-                        ? "bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent"
-                        : "text-white")
-                  },
-                  stat.number
-                ),
-                React.createElement("div", { className: "text-sm text-gray-400" }, stat.label)
-              );
-            })
-          )
+        /* Stats (will be moved below image) */
         ),
 
         React.createElement(
@@ -226,6 +186,52 @@ export default function Hero({ onNavigate }) {
 
      
       
+      /* Centered Stats at Bottom */
+      React.createElement(
+        motion.div,
+        { variants: containerVariants, initial: "hidden", animate: "visible", className: "relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12 lg:mt-14 mb-12 sm:mb-16 lg:mb-20" },
+        React.createElement(
+          "div",
+          { className: "flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8" },
+          stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return React.createElement(
+              motion.div,
+              {
+                key: index,
+                initial: { opacity: 0.5, scale: 0.9 },
+                animate: {
+                  opacity: currentStatIndex === index ? 1 : 0.8,
+                  scale: currentStatIndex === index ? 1.05 : 1
+                },
+                transition: { duration: 0.5 },
+                className:
+                  "min-w-[150px] text-center p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 " +
+                  (currentStatIndex === index
+                    ? "bg-gradient-to-br from-purple-500/20 to-teal-500/20 border border-purple-500/30"
+                    : "bg-slate-800/30 border border-slate-700/50")
+              },
+              React.createElement(Icon, {
+                className:
+                  "w-8 h-8 mx-auto mb-3 " +
+                  (currentStatIndex === index ? "text-purple-400" : "text-gray-400")
+              }),
+              React.createElement(
+                "div",
+                {
+                  className:
+                    "text-2xl lg:text-3xl font-bold mb-1 " +
+                    (currentStatIndex === index
+                      ? "bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent"
+                      : "text-white")
+                },
+                stat.number
+              ),
+              React.createElement("div", { className: "text-sm text-gray-400" }, stat.label)
+            );
+          })
+        )
+      )
     )
   );
 }

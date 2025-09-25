@@ -4,10 +4,16 @@ import { Users, Target, Award, Zap, Heart, Globe, TrendingUp, Shield } from "luc
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import mazz from "../images/mazz.png";
+import muzammil from "../images/muzammil.jpg";
+import hammad from "../images/hammad.png";
+import ahsan from "../images/ahsan.png";
 
-export default function About({ detailed = false }) {
+
+export default function About({ detailed = false , onNavigate}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
 
   const values = [
     {
@@ -45,32 +51,28 @@ export default function About({ detailed = false }) {
 
   const team = [
     {
-      name: "Alex Chen",
-      position: "CEO & Founder",
-      bio: "10+ years in digital marketing, former Google strategist",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      name: "Mohammad-Mazz",
+      position: "Frontend Developer",
+      bio: "6+ years in Development experience",
+      image: mazz,
     },
     {
-      name: "Sarah Rodriguez",
-      position: "Head of Strategy",
-      bio: "Expert in data-driven marketing with MBA from Stanford",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=400&h=400&fit=crop&crop=face",
+      name: "Ahsan-Khan",
+      position: "Backend Developer",
+      bio: "3+ years in Development experience",
+      image: ahsan,
     },
     {
-      name: "Michael Kim",
+      name: "Hammad-Ansari",
       position: "Technical Director",
       bio: "Full-stack developer specializing in marketing technology",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      image: hammad,
     },
     {
-      name: "Emma Thompson",
+      name: "Muzammil-Khan",
       position: "Creative Director",
-      bio: "Award-winning designer with focus on conversion optimization",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+      bio: "5+ years in Digital Marketing",
+      image: muzammil,
     },
   ];
 
@@ -401,6 +403,46 @@ export default function About({ detailed = false }) {
         )
       ),
 
+      /* Core Values */
+      React.createElement(
+        motion.div,
+        { variants: containerVariants, initial: "hidden", animate: isInView ? "visible" : "hidden", className: "mb-20 sm:mb-24 lg:mb-28" },
+        React.createElement(
+          motion.h3,
+          { variants: itemVariants, className: "text-3xl font-bold text-center text-white mb-12" },
+          "Our Core Values"
+        ),
+        React.createElement(
+          "div",
+          { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" },
+          values.map((value, index) =>
+            React.createElement(
+              motion.div,
+              { key: index, variants: itemVariants },
+              React.createElement(
+                Card,
+                { className: "h-full bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 text-center group" },
+                React.createElement(
+                  CardHeader,
+                  null,
+                  React.createElement(
+                    "div",
+                    { className: `w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${value.color === "purple" ? "from-purple-500/20 to-purple-600/20" : "from-teal-500/20 to-teal-600/20"} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300` },
+                    React.createElement(value.icon, { className: `w-7 h-7 ${value.color === "purple" ? "text-purple-400" : "text-teal-400"}` })
+                  ),
+                  React.createElement(CardTitle, { className: "text-white text-lg" }, value.title)
+                ),
+                React.createElement(
+                  CardContent,
+                  null,
+                  React.createElement(CardDescription, { className: "text-gray-300" }, value.description)
+                )
+              )
+            )
+          )
+        )
+      ),
+
       /* Grid Section */
       React.createElement(
         "div",
@@ -426,6 +468,7 @@ export default function About({ detailed = false }) {
           React.createElement(
             Button,
             {
+              onClick: () => onNavigate("about"),
               className:
                 "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg",
             },
