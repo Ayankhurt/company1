@@ -7,11 +7,11 @@ import { Badge } from './ui/badge';
 import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-export default function Blog() {
+export default function Blog({ onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const categories = ['All', 'SEO', 'PPC', 'Social Media', 'Content Marketing', 'Web Development', 'Analytics'];
+  const categories = ['All', 'SEO', 'Graphic Design', 'Social Media', 'Digital Marketing', 'Web Development', 'Video Editing'];
 
   const blogPosts = [
     {
@@ -30,9 +30,9 @@ export default function Blog() {
     },
     {
       id: 2,
-      title: 'How to Create High-Converting Landing Pages',
-      excerpt: 'Learn the essential elements that make landing pages convert visitors into customers. Includes real examples and conversion optimization tips.',
-      category: 'Web Development',
+      title: 'Mastering High-Converting Landing Pages: Strategies That Work',
+      excerpt: 'Discover the key components that transform your landing pages into powerful conversion machines. Packed with proven techniques, real-world examples, and expert tips to boost your conversion rates effectively.',
+      category: 'Web Development & Conversion Optimization',
       author: 'Michael Kim',
       date: '2024-01-12',
       readTime: '12 min read',
@@ -44,17 +44,17 @@ export default function Blog() {
     },
     {
       id: 3,
-      title: 'The Complete Guide to Google Ads in 2024',
-      excerpt: 'Master Google Ads with our comprehensive guide covering campaign setup, optimization strategies, and advanced bidding techniques.',
-      category: 'PPC',
+      title: 'The Ultimate Guide to Graphic Design in 2024',
+      excerpt: 'Learn the principles, tools, and trends that define modern graphic design. From typography to layout, master the art of visual storytelling.',
+      category: 'Graphic Design',
       author: 'Alex Chen',
       date: '2024-01-10',
       readTime: '15 min read',
       views: 3200,
       comments: 45,
       featured: true,
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop',
-      tags: ['Google Ads', 'PPC', 'Paid Marketing', 'ROI']
+      image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',  // or replace with one from above
+      tags: ['Graphic Design', 'Typography', 'Visual Design', 'Creative Tools']
     },
     {
       id: 4,
@@ -67,36 +67,36 @@ export default function Blog() {
       views: 1950,
       comments: 28,
       featured: false,
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1683721003111-070bcc053d8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29jaWFsJTIwbWVkaWElMjBtYXJrZXRpbmd8ZW58MHx8MHx8fDA%3D',
       tags: ['Social Media', 'Trends', 'Marketing Strategy', 'Engagement']
     },
     {
       id: 5,
-      title: 'Email Marketing Automation That Actually Works',
-      excerpt: 'Build email sequences that nurture leads and drive sales. Learn about segmentation, personalization, and automation best practices.',
-      category: 'Content Marketing',
+      title: 'Effective Digital Marketing Automation Strategies',
+      excerpt: 'Discover how to automate your digital marketing campaigns to boost engagement and conversions. Learn segmentation, personalization, and automation best practices across channels.',
+      category: 'Digital Marketing',
       author: 'Sarah Rodriguez',
       date: '2024-01-05',
       readTime: '11 min read',
       views: 2100,
       comments: 19,
       featured: false,
-      image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=400&fit=crop',
-      tags: ['Email Marketing', 'Automation', 'Lead Nurturing', 'Personalization']
+      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlnaXRhbCUyMG1hcmtldGluZ3xlbnwwfHwwfHx8MA%3D%3D',
+      tags: ['Digital Marketing', 'Automation', 'Lead Nurturing', 'Personalization']
     },
     {
       id: 6,
-      title: 'Measuring ROI in Digital Marketing',
-      excerpt: 'Learn how to accurately measure and improve your digital marketing ROI across all channels. Includes tools, metrics, and calculation methods.',
-      category: 'Analytics',
+      title: 'Measuring Impact in Video Editing Projects',
+      excerpt: 'Learn how to evaluate the effectiveness of your video edits and projects. Includes tools, metrics, and techniques to improve your video content.',
+      category: 'Video Editing',
       author: 'Michael Kim',
       date: '2024-01-03',
       readTime: '9 min read',
       views: 1650,
       comments: 22,
       featured: false,
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      tags: ['Analytics', 'ROI', 'Measurement', 'KPIs']
+      image: 'https://images.unsplash.com/photo-1682506457554-b34c9682e985?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHZlZGlvJTIwZWRpdGluZ3xlbnwwfHwwfHx8MA%3D%3D',
+      tags: ['Video Editing', 'Post Production', 'Metrics', 'Content Impact']
     }
   ];
 
@@ -173,8 +173,8 @@ export default function Blog() {
                 size: "sm",
                 onClick: () => setSelectedCategory(category),
                 className: selectedCategory === category
-                  ? "bg-gradient-to-r from-purple-600 to-teal-500 text-white border-0"
-                  : "border-slate-600 text-gray-300 hover:border-purple-500/50 hover:text-purple-400"
+                  ? "bg-gradient-to-r from-purple-600 to-teal-500 text-white border-0 cursor-pointer"
+                  : "border-slate-600 text-gray-300 hover:border-purple-500/50 hover:text-purple-400 cursor-pointer"
               }, category)
             )
           )
@@ -199,7 +199,10 @@ export default function Blog() {
               whileHover: { y: -5 },
               className: "group cursor-pointer"
             },
-              React.createElement(Card, { className: "h-full bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 overflow-hidden" },
+              React.createElement(Card, { 
+                className: "h-full bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer",
+                onClick: () => onNavigate('blog', post.id)
+              },
                 React.createElement("div", { className: "relative" },
                   React.createElement(ImageWithFallback, { src: post.image, alt: post.title, className: "w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" }),
                   React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" }),
@@ -235,7 +238,10 @@ export default function Blog() {
                       )
                     )
                   ),
-                  React.createElement(Button, { className: "w-full mt-4 bg-gradient-to-r from-purple-600 to-teal-500 hover:opacity-90 transition-all duration-300" },
+                  React.createElement(Button, { 
+                    className: "w-full mt-4 bg-gradient-to-r from-purple-600 to-teal-500 hover:opacity-90 transition-all duration-300 cursor-pointer",
+                    onClick: () => onNavigate('blog', post.id)
+                  },
                     "Read More", React.createElement(ArrowRight, { className: "ml-2 w-4 h-4" })
                   )
                 )
@@ -259,7 +265,10 @@ export default function Blog() {
           : React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" },
               (selectedCategory === 'All' ? regularPosts : filteredPosts).map(post =>
                 React.createElement(motion.div, { key: post.id, variants: cardVariants, whileHover: { y: -5 }, className: "group cursor-pointer" },
-                  React.createElement(Card, { className: "h-full bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 overflow-hidden" },
+                  React.createElement(Card, { 
+                    className: "h-full bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 overflow-hidden cursor-pointer",
+                    onClick: () => onNavigate('blog', post.id)
+                  },
                     React.createElement("div", { className: "relative" },
                       React.createElement(ImageWithFallback, { src: post.image, alt: post.title, className: "w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" }),
                       React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" }),
@@ -294,7 +303,11 @@ export default function Blog() {
                           )
                         )
                       ),
-                      React.createElement(Button, { variant: "outline", className: "w-full border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 transition-all duration-300" },
+                      React.createElement(Button, { 
+                        variant: "outline", 
+                        className: "w-full border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 transition-all duration-300 cursor-pointer",
+                        onClick: () => onNavigate('blog', post.id)
+                      },
                         "Read Article", React.createElement(ArrowRight, { className: "ml-2 w-3 h-3" })
                       )
                     )
@@ -302,23 +315,6 @@ export default function Blog() {
                 )
               )
             )
-      ),
-
-      // Newsletter
-      React.createElement(motion.div, {
-        initial: { opacity: 0, y: 30 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.8, delay: 0.4 },
-        className: "mt-20 bg-gradient-to-r from-purple-600/20 to-teal-500/20 rounded-2xl p-8 md:p-12 backdrop-blur-sm border border-purple-500/20"
-      },
-        React.createElement("div", { className: "max-w-3xl mx-auto text-center" },
-          React.createElement("h2", { className: "text-3xl font-bold text-white mb-4" }, "Subscribe to Our Newsletter"),
-          React.createElement("p", { className: "text-gray-300 mb-6" }, "Get the latest digital marketing insights delivered straight to your inbox every week."),
-          React.createElement("form", { className: "flex flex-col sm:flex-row gap-4 justify-center" },
-            React.createElement(Input, { type: "email", placeholder: "Enter your email", className: "bg-slate-800/50 border-slate-700 focus:border-purple-500 text-white" }),
-            React.createElement(Button, { type: "submit", className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:opacity-90 transition-all duration-300" }, "Subscribe")
-          )
-        )
       )
     )
   );

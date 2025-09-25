@@ -4,7 +4,7 @@ import { Search, MousePointer, Share2, FileText, Mail, Code, Palette, TrendingUp
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
-export default function Services({ detailed = false , onNavigate}) {
+export default function Services({ detailed = false, onNavigate }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -83,8 +83,8 @@ export default function Services({ detailed = false , onNavigate}) {
     },
     {
       icon: Mail,
-       title: "Video Editing",
-       shortDesc: "Create engaging videos that captivate your audience",
+      title: "Vedio Editing",
+      shortDesc: "Nurture leads and drive sales with targeted email campaigns",
       longDesc:
         "Video editing is the process of arranging and modifying video clips to create a polished final product. It involves cutting, adding effects, transitions, sound, and color correction to tell a story or deliver a message effectively. Good editing enhances the visual appeal and keeps viewers engaged.",
       features: [
@@ -138,7 +138,7 @@ export default function Services({ detailed = false , onNavigate}) {
     {
       icon: TrendingUp,
       title: "Social Media Marketing",
-       shortDesc: "Build engaging communities and drive brand awareness",
+      shortDesc: "Optimize your website to convert more visitors into customers",
       longDesc:
         "Social media marketing promotes products or services through platforms like Facebook, Instagram, and LinkedIn. It helps businesses increase brand awareness, engage with audiences, and drive traffic through creative content and targeted ads.",
       features: [
@@ -176,7 +176,7 @@ export default function Services({ detailed = false , onNavigate}) {
   if (detailed) {
     return /*#__PURE__*/ React.createElement(
       "section",
-      { className: "mt-12 sm:mt-16 lg:mt-20 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" },
+      { className: "py-25 px-4 sm:px-6 lg:px-8" },
       /*#__PURE__*/ React.createElement(
         "div",
         { className: "max-w-7xl mx-auto" },
@@ -253,7 +253,10 @@ export default function Services({ detailed = false , onNavigate}) {
                     ),
                     /*#__PURE__*/ React.createElement(
                       Button,
-                      { className: `w-full mt-6 bg-gradient-to-r ${service.gradient} hover:opacity-90 transition-all duration-300` },
+                      { 
+                        className: `w-full mt-6 bg-gradient-to-r ${service.gradient} hover:opacity-90 transition-all duration-300 cursor-pointer`,
+                        onClick: () => onNavigate && onNavigate('services', null, service.id || index + 1)
+                      },
                       "Learn More",
                       /*#__PURE__*/ React.createElement(ArrowRight, { className: "ml-2 w-4 h-4" })
                     )
@@ -271,7 +274,7 @@ export default function Services({ detailed = false , onNavigate}) {
   return (
     /*#__PURE__*/ React.createElement(
       "div",
-      { className: "max-w-7xl mx-auto relative z-10 mt-12 sm:mt-16 lg:mt-20 mb-16", ref },
+      { className: "max-w-7xl mx-auto relative z-10", ref },
       /*#__PURE__*/ React.createElement(
         motion.div,
         {
@@ -306,7 +309,10 @@ export default function Services({ detailed = false , onNavigate}) {
             { key: index, variants: cardVariants, whileHover: { y: -10, scale: 1.02 }, className: "group" },
             /*#__PURE__*/ React.createElement(
               Card,
-              { className: "h-full bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:border-purple-500/50 transition-all duration-300 cursor-pointer" },
+              { 
+                className: "h-full bg-slate-800/50 backdrop-blur-sm border-slate-700 hover:border-purple-500/50 transition-all duration-300 cursor-pointer",
+                onClick: () => onNavigate && onNavigate('services', null, service.id || index + 1)
+              },
               /*#__PURE__*/ React.createElement(
                 CardHeader,
                 { className: "text-center pb-4" },
@@ -350,7 +356,7 @@ export default function Services({ detailed = false , onNavigate}) {
         },
         /*#__PURE__*/ React.createElement(
           Button,
-          {onClick: () => onNavigate("services"), className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl" },
+          { className: "bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-700 hover:to-teal-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl" },
           "View All Services",
           /*#__PURE__*/ React.createElement(ArrowRight, { className: "ml-2 w-5 h-5" })
         )
